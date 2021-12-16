@@ -7,16 +7,16 @@ public class CharacterControllerScript : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     private Vector2 lookDirection = new Vector2(0, 0);
-    public int moveSpeed;
+    public int moveSpeed = 10;
     private float _xMove = 0f;
     private float _yMove = 0f;
-    public int maxHealth;
+    public int maxHealth = 5;
     private int _currentHealth;
-    public int maxInvinsibleTime;
+    public int maxInvinsibleTime = 2;
     private float _currentInvisibleTime;
     private bool isInvisible = false;
-    public float timeKnockback;
-    public float powerKnockback;
+    public float timeKnockback = 2;
+    public float powerKnockback = 50;
     private bool isAttacking = false;
     public int currentHealth
     {
@@ -34,15 +34,8 @@ public class CharacterControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isAttacking)
-        {
-            _xMove = Input.GetAxis("Horizontal");
-            _yMove = Input.GetAxis("Vertical");
-        }
-        else
-        {
-            _xMove = _yMove = 0;
-        }
+        _xMove = Input.GetAxis("Horizontal");
+        _yMove = Input.GetAxis("Vertical");
         if (isInvisible)
         {
             coutdownInvisibleMode();
@@ -86,7 +79,8 @@ public class CharacterControllerScript : MonoBehaviour
         animator.SetTrigger("Attack");
         isAttacking = true;
         Debug.Log(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name);
-        while (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack.Back") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attack.Top") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attack.Left_Side") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attack.Right_Side")) {
+        while (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack.Back") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attack.Top") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attack.Left_Side") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attack.Right_Side"))
+        {
             Debug.Log("in attacking");
         }
         isAttacking = false;
