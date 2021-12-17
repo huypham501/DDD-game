@@ -7,7 +7,7 @@ public class CharacterControllerScript : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     private Vector2 lookDirection = new Vector2(0, 0);
-    public int moveSpeed = 10;
+    public int moveSpeed = 3;
     private float _xMove = 0f;
     private float _yMove = 0f;
     public int maxHealth = 5;
