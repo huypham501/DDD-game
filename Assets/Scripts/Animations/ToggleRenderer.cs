@@ -10,21 +10,27 @@ public class ToggleRenderer : MonoBehaviour
         //pauseBox.SetActive(false);
         
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleVisibility();
+        }
+    }
     public void ToggleVisibility()
     {
         Renderer rend = gameObject.GetComponent<Renderer>();
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (rend.enabled)
         {
-            if (rend.enabled)
-            {
-                rend.enabled = false;
-                //pauseBox.SetActive(false);
-            }
-            else
-            {
-                rend.enabled = true;
-                //pauseBox.SetActive(true);
-            }
+            rend.enabled = false;
+            //pauseBox.SetActive(false);
+            Debug.Log("Turn off");
+        }
+        else
+        {
+            rend.enabled = true;
+            //pauseBox.SetActive(true);
+            Debug.Log("Turn on");
         }
     }
 
