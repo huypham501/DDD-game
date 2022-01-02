@@ -29,12 +29,13 @@ public class CharacterControllerScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        
+
         inputActions = new InputActions();
         inputActions.Character.Enable();
         inputActions.Character.Direction.started += move;
         inputActions.Character.Direction.performed += move;
         inputActions.Character.Direction.canceled += stopMove;
+        inputActions.Character.Attack.performed += attack;
 
         _currentHealth = maxHealth;
         _currentInvisibleTime = maxInvinsibleTime;
@@ -76,6 +77,10 @@ public class CharacterControllerScript : MonoBehaviour
     private void stopMove(InputAction.CallbackContext context)
     {
         moveVector = Vector2.zero;
+    }
+    private void attack(InputAction.CallbackContext context)
+    {
+        animator.SetTrigger("Attack");
     }
     private void changeHealth(int value)
     {

@@ -25,6 +25,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""02d6002e-e7cd-42aa-a729-1e50083c63a1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -137,6 +145,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""action"": ""Direction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5cc1703b-719f-4b9b-b668-5201c93aa3bb"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -146,6 +165,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         // Character
         m_Character = asset.FindActionMap("Character", throwIfNotFound: true);
         m_Character_Direction = m_Character.FindAction("Direction", throwIfNotFound: true);
+        m_Character_Attack = m_Character.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -196,11 +216,13 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Character;
     private ICharacterActions m_CharacterActionsCallbackInterface;
     private readonly InputAction m_Character_Direction;
+    private readonly InputAction m_Character_Attack;
     public struct CharacterActions
     {
         private @InputActions m_Wrapper;
         public CharacterActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Direction => m_Wrapper.m_Character_Direction;
+        public InputAction @Attack => m_Wrapper.m_Character_Attack;
         public InputActionMap Get() { return m_Wrapper.m_Character; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -213,6 +235,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Direction.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnDirection;
                 @Direction.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnDirection;
                 @Direction.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnDirection;
+                @Attack.started -= m_Wrapper.m_CharacterActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_CharacterActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_CharacterActionsCallbackInterface.OnAttack;
             }
             m_Wrapper.m_CharacterActionsCallbackInterface = instance;
             if (instance != null)
@@ -220,6 +245,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Direction.started += instance.OnDirection;
                 @Direction.performed += instance.OnDirection;
                 @Direction.canceled += instance.OnDirection;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
             }
         }
     }
@@ -227,5 +255,6 @@ public class @InputActions : IInputActionCollection, IDisposable
     public interface ICharacterActions
     {
         void OnDirection(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
 }
