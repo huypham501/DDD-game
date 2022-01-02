@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CharacterControllerScript : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator animator;
-    private Vector2 lookDirection = new Vector2(0, 0);
+    private Vector2 lookDirectionVector = new Vector2(0, -1);
+    private Vector2 moveVector = Vector2.zero;
+    private InputActions inputActions;
     public int moveSpeed = 3;
-    private float _xMove = 0f;
-    private float _yMove = 0f;
     public int maxHealth = 5;
     private int _currentHealth;
     public int maxInvinsibleTime = 2;
@@ -18,6 +19,7 @@ public class CharacterControllerScript : MonoBehaviour
     public float timeKnockback = 2;
     public float powerKnockback = 50;
     private bool isAttacking = false;
+
     public int currentHealth
     {
         get { return _currentHealth; }
@@ -27,6 +29,13 @@ public class CharacterControllerScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        
+        inputActions = new InputActions();
+        inputActions.Character.Enable();
+        inputActions.Character.Direction.started += move;
+        inputActions.Character.Direction.performed += move;
+        inputActions.Character.Direction.canceled += stopMove;
+
         _currentHealth = maxHealth;
         _currentInvisibleTime = maxInvinsibleTime;
     }
@@ -34,75 +43,43 @@ public class CharacterControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _xMove = Input.GetAxis("Horizontal");
-        _yMove = Input.GetAxis("Vertical");
         if (isInvisible)
         {
             coutdownInvisibleMode();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Attack");
-            Launch();
-        }
     }
-
-
     void FixedUpdate()
     {
-        Vector2 vector2 = new Vector2(_xMove, _yMove);
-        if (!Mathf.Approximately(vector2.x, 0.0f) || !Mathf.Approximately(vector2.y, 0.0f))
+        animator.SetFloat("Speed", moveVector.magnitude);
+        if (Mathf.Abs(lookDirectionVector.x) >= Mathf.Abs(lookDirectionVector.y))
         {
-            lookDirection.Set(vector2.x, vector2.y);
-            lookDirection.Normalize();
-        }
-        animator.SetFloat("Speed", vector2.magnitude);
-        if (Mathf.Abs(lookDirection.x) >= Mathf.Abs(lookDirection.y))
-        {
-            animator.SetFloat("Horizontal", lookDirection.x);
+            animator.SetFloat("Horizontal", lookDirectionVector.x);
             animator.SetFloat("Vertical", 0);
         }
         else
         {
             animator.SetFloat("Horizontal", 0);
-            animator.SetFloat("Vertical", lookDirection.y);
+            animator.SetFloat("Vertical", lookDirectionVector.y);
         }
 
-        rb.MovePosition(new Vector2(transform.position.x + _xMove * moveSpeed * Time.deltaTime, transform.position.y + _yMove * moveSpeed * Time.deltaTime));
+        rb.MovePosition(new Vector2(transform.position.x + moveVector.x * moveSpeed * Time.deltaTime, transform.position.y + moveVector.y * moveSpeed * Time.deltaTime));
     }
-    private void Launch()
+    private void move(InputAction.CallbackContext context)
     {
-        // GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Vector2.up * 0.5f, Quaternion.identity);
-
-        // ProjectileScript projectile = projectileObject.GetComponent<ProjectileScript>();
-        // projectile.Launch(lookDirection, 300);
-        animator.SetTrigger("Attack");
-        isAttacking = true;
-        Debug.Log(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name);
-        while (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack.Back") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attack.Top") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attack.Left_Side") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attack.Right_Side"))
+        moveVector = context.ReadValue<Vector2>();
+        if (!Mathf.Approximately(moveVector.x, 0.0f) || !Mathf.Approximately(moveVector.y, 0.0f))
         {
-            Debug.Log("in attacking");
+            lookDirectionVector.Set(moveVector.x, moveVector.y);
+            lookDirectionVector.Normalize();
         }
-        isAttacking = false;
-
+    }
+    private void stopMove(InputAction.CallbackContext context)
+    {
+        moveVector = Vector2.zero;
     }
     private void changeHealth(int value)
     {
         _currentHealth = Mathf.Clamp(_currentHealth + value, 0, maxHealth);
-    }
-
-    public void eatenStrawberry()
-    {
-        // changeHealth(Contants.VALUE_STRAWBERRY);
-    }
-    public void stepOnDamageableZone(Transform damageableZone)
-    {
-        if (!isInvisible)
-        {
-            enterInvisibleMode();
-            // changeHealth(Contants.VALUE_DAMAGEABLE_ZONE);
-            StartCoroutine(animationGetHit(damageableZone));
-        }
     }
     public IEnumerator animationGetHit(Transform obj)
     {
