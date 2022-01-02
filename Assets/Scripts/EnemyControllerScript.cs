@@ -29,7 +29,7 @@ public class EnemyControllerScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        target = FindObjectOfType<CharacterControllerScript>().transform;
+        // target = FindObjectOfType<CharacterControllerScript>().transform;
         _currentHealth = maxHealth;
         _currentInvisibleTime = maxInvinsibleTime;
     }
@@ -37,7 +37,7 @@ public class EnemyControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        directionToPlayer = target.position - transform.position;
+        // directionToPlayer = target.position - transform.position;
 
         // _xMove = Input.GetAxis("Horizontal");
         // _yMove = Input.GetAxis("Vertical");
@@ -75,7 +75,7 @@ public class EnemyControllerScript : MonoBehaviour
     void FixedUpdate()
     {
         // Vector2 vector2 = new Vector2(_xMove, _yMove);
-        Debug.Log(directionToPlayer.magnitude);
+        // Debug.Log(directionToPlayer.magnitude);
         if (directionToPlayer.magnitude <= detectDistance && directionToPlayer.magnitude >= minFollowDistance)
         {
             followPlayer();
