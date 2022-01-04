@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 8507863251143472376}
   - component: {fileID: 8507863251143472379}
   - component: {fileID: 8507863251143472380}
-  m_Layer: 20
+  m_Layer: 8
   m_Name: WraithSkin1
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -9,10 +9,8 @@ public class EuipmentSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(testGameObject.name + " = " + transforms[0].name);
         SpriteRenderer spriteRendererTemp = testGameObject.transform.GetComponent<SpriteRenderer>();
         spriteRendererTemp.sprite = transforms[0];
-        Debug.Log(spriteRendererTemp.name);
     }
 
     // Update is called once per frame
