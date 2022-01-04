@@ -352,12 +352,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 87.88726
       objectReference: {fileID: 0}
-    - target: {fileID: 6090898437722614176, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
-        type: 3}
-      propertyPath: transforms.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 7d5b3edf6033b8745b2e53e677e34d92,
-        type: 3}
     - target: {fileID: 6275217723913424126, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
         type: 3}
       propertyPath: m_Sprite
@@ -6832,6 +6826,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8507863251143472377, guid: b8ce1ac97819af34e837a0b690a04a3a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8507863251143472378, guid: b8ce1ac97819af34e837a0b690a04a3a,
         type: 3}
       propertyPath: m_Name
@@ -6890,6 +6889,11 @@ PrefabInstance:
     - target: {fileID: 8507863251143472383, guid: b8ce1ac97819af34e837a0b690a04a3a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701974330971922711, guid: b8ce1ac97819af34e837a0b690a04a3a,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

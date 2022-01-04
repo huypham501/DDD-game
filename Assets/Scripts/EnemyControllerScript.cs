@@ -52,6 +52,13 @@ public class EnemyControllerScript : MonoBehaviour
         //     Launch();
         // }
     }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.tag == "CharacterHitBox")
+        {
+            Destroy(gameObject);
+        }
+    }
     private void followPlayer()
     {
         // if (!Mathf.Approximately(directionToPlayer.x, 0.0f) || !Mathf.Approximately(directionToPlayer.y, 0.0f))

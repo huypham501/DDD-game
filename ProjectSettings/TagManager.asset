@@ -5,9 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Teleporter
-  - TestTag1
-  - TestTag2
-  - TestTag3
+  - CharacterHitBox
   layers:
   - Default
   - TransparentFX
