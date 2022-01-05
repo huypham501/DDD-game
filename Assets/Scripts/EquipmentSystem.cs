@@ -21,7 +21,6 @@ public class EquipmentSystem : MonoBehaviour
     public GameObject hatFront;
     public GameObject hatLeft;
     public GameObject hatRight;
-
     public static EquipmentSystem instance;
     #region Singleton
     private void Awake()
@@ -45,9 +44,41 @@ public class EquipmentSystem : MonoBehaviour
     {
 
     }
-
+    public void equipArmor(Item item)
+    {
+        bodyClothesFront.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Front_default;
+        bodyClothesBack.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Back;
+        bodyClothesLeft.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Left;
+        bodyClothesRight.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Right;
+    }
+    public void equipHelmet(Item item)
+    {
+        hatFront.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Front_default;
+        hatBack.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Back;
+        hatLeft.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Left;
+        hatRight.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Right;
+    }
+    public void equipSword(Item item)
+    {
+        sword.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Front_default;
+    }
     public void equipItem(Item item)
     {
+        switch (item.itemTypeEnum)
+        {
+            case ItemTypeEnum.Armor:
+                equipArmor(item);
+                break;
+            case ItemTypeEnum.Helmet:
+                equipHelmet(item);
+                break;
+            case ItemTypeEnum.Sword:
+                equipSword(item);
+                break;
+            default:
+                Debug.Log("Cannot detect type of object");
+                break;
+        };
         // SpriteRenderer spriteRendererTemp = testGameObject.transform.GetComponent<SpriteRenderer>();
         // spriteRendererTemp.sprite = item.sprite;
     }

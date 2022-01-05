@@ -12,13 +12,11 @@ public class ItemPickUp : MonoBehaviour
             pickUp();
         }
     }
-
     private void pickUp()
     {
-        // EquipmentSystem.instance.equipItem(item);
         if (EquipmentSystem.instance != null)
         {
-            Debug.Log("System exists");
+            EquipmentSystem.instance.equipItem(item);
         }
         Destroy(gameObject);
     }
