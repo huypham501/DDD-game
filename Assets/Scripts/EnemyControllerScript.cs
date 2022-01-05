@@ -24,6 +24,7 @@ public class EnemyControllerScript : MonoBehaviour
     {
         get { return _currentHealth; }
     }
+    public HPBehaviour HealthBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +33,7 @@ public class EnemyControllerScript : MonoBehaviour
         // target = FindObjectOfType<CharacterControllerScript>().transform;
         _currentHealth = maxHealth;
         _currentInvisibleTime = maxInvinsibleTime;
+        HealthBar.SetHP(currentHealth, maxHealth);
     }
 
     // Update is called once per frame
