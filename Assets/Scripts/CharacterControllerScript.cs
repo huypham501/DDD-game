@@ -10,7 +10,7 @@ public class CharacterControllerScript : MonoBehaviour
     private Vector2 lookDirectionVector = new Vector2(0, -1);
     private Vector2 moveVector = Vector2.zero;
     private InputActions inputActions;
-    public int moveSpeed = 3;
+    public int moveSpeed = 70;
     public int maxHealth = 5;
     private int _currentHealth;
     public int maxInvinsibleTime = 2;
@@ -63,7 +63,8 @@ public class CharacterControllerScript : MonoBehaviour
             animator.SetFloat("Vertical", lookDirectionVector.y);
         }
 
-        rb.MovePosition(new Vector2(transform.position.x + moveVector.x * moveSpeed * Time.deltaTime, transform.position.y + moveVector.y * moveSpeed * Time.deltaTime));
+        // rb.MovePosition(new Vector2(transform.position.x + moveVector.x * moveSpeed * Time.deltaTime, transform.position.y + moveVector.y * moveSpeed * Time.deltaTime));
+        rb.velocity = new Vector2(moveVector.x, moveVector.y).normalized * moveSpeed * Time.deltaTime;
     }
     private void move(InputAction.CallbackContext context)
     {
