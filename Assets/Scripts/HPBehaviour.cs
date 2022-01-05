@@ -5,23 +5,28 @@ using UnityEngine.UI;
 
 public class HPBehaviour : MonoBehaviour
 {
-    public Slider Slider;
-    public Color High;
-    public Color Low;
-    public Vector3 Offset;
-    public object ball;
-    
-    public void SetHP(float health, float maxhealth)
-    {
-        Slider.gameObject.SetActive(health < maxhealth);
-        Slider.value = health;
-        Slider.maxValue = maxhealth;
 
-        Slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(Low, High, Slider.normalizedValue);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        Slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + Offset);
-    }
+	public Slider slider;
+	public Gradient gradient;
+	public Image fill;
+	public Vector3 Offset;
+	public void SetMaxHealth(int health)
+	{
+		slider.maxValue = health;
+		slider.value = health;
+
+		fill.color = gradient.Evaluate(1f);
+	}
+
+	public void SetHealth(int health)
+	{
+		slider.value = health;
+
+		fill.color = gradient.Evaluate(slider.normalizedValue);
+	}
+	void Update()
+		{
+			slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + Offset);
+		}
 }
+
