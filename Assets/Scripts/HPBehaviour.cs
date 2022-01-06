@@ -26,7 +26,7 @@ public class HPBehaviour : MonoBehaviour
 	}
 	void Update()
 		{
-			slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + Offset);
+			
 		}
 }
 
