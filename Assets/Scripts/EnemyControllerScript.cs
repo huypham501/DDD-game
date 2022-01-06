@@ -59,6 +59,17 @@ public class EnemyControllerScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    void FixedUpdate()
+    {
+        if (directionToPlayer.magnitude <= detectDistance && directionToPlayer.magnitude >= minFollowDistance)
+        {
+            followPlayer();
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
+    }
     private void followPlayer()
     {
         // if (!Mathf.Approximately(directionToPlayer.x, 0.0f) || !Mathf.Approximately(directionToPlayer.y, 0.0f))
@@ -79,20 +90,7 @@ public class EnemyControllerScript : MonoBehaviour
 
         rb.MovePosition(new Vector2(transform.position.x + directionToPlayer.x * moveSpeed * Time.deltaTime, transform.position.y + directionToPlayer.y * moveSpeed * Time.deltaTime));
     }
-    void FixedUpdate()
-    {
-        // Vector2 vector2 = new Vector2(_xMove, _yMove);
-        // Debug.Log(directionToPlayer.magnitude);
-        if (directionToPlayer.magnitude <= detectDistance && directionToPlayer.magnitude >= minFollowDistance)
-        {
-            followPlayer();
-        }
-        else
-        {
-            rb.velocity = Vector2.zero;
-        }
-    }
-    private void Launch()
+    private void attack()
     {
         // GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Vector2.up * 0.5f, Quaternion.identity);
 
@@ -112,19 +110,14 @@ public class EnemyControllerScript : MonoBehaviour
     {
         // _currentHealth = Mathf.Clamp(_currentHealth + value, 0, maxHealth);
     }
-
-    public void eatenStrawberry()
+    public void getHit()
     {
-        // changeHealth(Contants.VALUE_STRAWBERRY);
-    }
-    public void stepOnDamageableZone(Transform damageableZone)
-    {
-        // if (!isInvisible)
-        // {
-        //     enterInvisibleMode();
-        //     // changeHealth(Contants.VALUE_DAMAGEABLE_ZONE);
-        //     StartCoroutine(animationGetHit(damageableZone));
-        // }
+        if (!isInvisible)
+        {
+            enterInvisibleMode();
+            // changeHealth(Contants.VALUE_DAMAGEABLE_ZONE);
+            // StartCoroutine(animationGetHit(damageableZone));
+        }
     }
     public IEnumerator animationGetHit(Transform obj)
     {
