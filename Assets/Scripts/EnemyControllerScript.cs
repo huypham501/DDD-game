@@ -20,29 +20,27 @@ public class EnemyControllerScript : MonoBehaviour
     public int detectDistance = 5;
     public float minFollowDistance = 1.5f;
     private Vector2 directionToPlayer;
-    
-    public HPBehaviour HealthBar;
+
+    HPBehaviour hpBehaviour;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        hpBehaviour = GetComponent<HPBehaviour>();
+        if (hpBehaviour != null)
+        {
+            Debug.Log("HERE");
+        }
         // target = FindObjectOfType<CharacterControllerScript>().transform;
         _currentHealth = maxHealth;
         _currentInvisibleTime = maxInvinsibleTime;
-        HealthBar.SetMaxHealth( maxHealth);
+        hpBehaviour.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            _currentHealth--;
-            HealthBar.SetHealth(_currentHealth);
-            if (_currentHealth <= 0)
-                Destroy(gameObject);
-        }
         // directionToPlayer = target.position - transform.position;
 
         // _xMove = Input.GetAxis("Horizontal");
@@ -62,11 +60,8 @@ public class EnemyControllerScript : MonoBehaviour
     {
         if (other.transform.tag == "CharacterHitBox")
         {
-            _currentHealth--;
-            HealthBar.SetHealth(_currentHealth);
-            Debug.Log("Attacked" + _currentHealth);
-            if (_currentHealth <= 0)
-                Destroy(gameObject);
+            // -1 temp
+            changeHealth(-1);
         }
     }
     void FixedUpdate()
@@ -118,7 +113,12 @@ public class EnemyControllerScript : MonoBehaviour
     }
     private void changeHealth(int value)
     {
-        // _currentHealth = Mathf.Clamp(_currentHealth + value, 0, maxHealth);
+        _currentHealth = Mathf.Clamp(_currentHealth + value, 0, maxHealth);
+        hpBehaviour.SetHealth(_currentHealth);
+        if (_currentHealth == 0)
+        {
+            Destroy(gameObject);
+        }
     }
     public void getHit()
     {

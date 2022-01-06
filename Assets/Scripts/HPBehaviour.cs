@@ -9,7 +9,6 @@ public class HPBehaviour : MonoBehaviour
 	public Slider slider;
 	public Gradient gradient;
 	public Image fill;
-	public Vector3 Offset;
 	public void SetMaxHealth(int health)
 	{
 		slider.maxValue = health;
@@ -21,12 +20,7 @@ public class HPBehaviour : MonoBehaviour
 	public void SetHealth(int health)
 	{
 		slider.value = health;
-
 		fill.color = gradient.Evaluate(slider.normalizedValue);
 	}
-	void Update()
-		{
-			
-		}
 }
 

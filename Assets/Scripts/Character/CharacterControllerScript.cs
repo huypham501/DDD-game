@@ -64,11 +64,13 @@ public class CharacterControllerScript : MonoBehaviour
         }
 
         // rb.MovePosition(new Vector2(transform.position.x + moveVector.x * moveSpeed * Time.deltaTime, transform.position.y + moveVector.y * moveSpeed * Time.deltaTime));
+        Debug.Log("RB: " + moveVector.x + " " + moveVector.y);
         rb.velocity = new Vector2(moveVector.x, moveVector.y).normalized * moveSpeed * Time.deltaTime;
     }
     private void move(InputAction.CallbackContext context)
     {
         moveVector = context.ReadValue<Vector2>();
+        Debug.Log("READ: " + moveVector.x + " " + moveVector.y);
         if (!Mathf.Approximately(moveVector.x, 0.0f) || !Mathf.Approximately(moveVector.y, 0.0f))
         {
             lookDirectionVector.Set(moveVector.x, moveVector.y);
@@ -89,15 +91,15 @@ public class CharacterControllerScript : MonoBehaviour
     }
     public IEnumerator animationGetHit(Transform obj)
     {
-        animator.SetTrigger("GetHit");
-        float timeCur = 0;
-        while (timeKnockback > timeCur)
-        {
-            timeCur += Time.deltaTime;
-            Vector2 vector2 = obj.position - transform.position;
-            vector2 = vector2.normalized;
-            rb.AddForce(-vector2 * powerKnockback);
-        }
+        // animator.SetTrigger("GetHit");
+        // float timeCur = 0;
+        // while (timeKnockback > timeCur)
+        // {
+        //     timeCur += Time.deltaTime;
+        //     Vector2 vector2 = obj.position - transform.position;
+        //     vector2 = vector2.normalized;
+        //     rb.AddForce(-vector2 * powerKnockback);
+        // }
         yield return 0;
     }
     private void enterInvisibleMode()
