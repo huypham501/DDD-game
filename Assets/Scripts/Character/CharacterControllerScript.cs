@@ -52,25 +52,33 @@ public class CharacterControllerScript : MonoBehaviour
     void FixedUpdate()
     {
         animator.SetFloat("Speed", moveVector.magnitude);
-        if (Mathf.Abs(lookDirectionVector.x) >= Mathf.Abs(lookDirectionVector.y))
+        if (Mathf.Approximately(Mathf.Abs(lookDirectionVector.x), Mathf.Abs(lookDirectionVector.y)))
         {
-            animator.SetFloat("Horizontal", lookDirectionVector.x);
-            animator.SetFloat("Vertical", 0);
+            animator.SetFloat("Horizontal", Mathf.Sign(lookDirectionVector.x));
+            animator.SetFloat("Vertical", Mathf.Sign(lookDirectionVector.y));
         }
         else
         {
-            animator.SetFloat("Horizontal", 0);
+            animator.SetFloat("Horizontal", lookDirectionVector.x);
             animator.SetFloat("Vertical", lookDirectionVector.y);
         }
+        // if (Mathf.Abs(lookDirectionVector.x) >= Mathf.Abs(lookDirectionVector.y))
+        // {
+        //     animator.SetFloat("Horizontal", lookDirectionVector.x);
+        //     animator.SetFloat("Vertical", 0);
+        // }
+        // else
+        // {
+        //     animator.SetFloat("Horizontal", 0);
+        //     animator.SetFloat("Vertical", lookDirectionVector.y);
+        // }
 
         // rb.MovePosition(new Vector2(transform.position.x + moveVector.x * moveSpeed * Time.deltaTime, transform.position.y + moveVector.y * moveSpeed * Time.deltaTime));
-        Debug.Log("RB: " + moveVector.x + " " + moveVector.y);
         rb.velocity = new Vector2(moveVector.x, moveVector.y).normalized * moveSpeed * Time.deltaTime;
     }
     private void move(InputAction.CallbackContext context)
     {
         moveVector = context.ReadValue<Vector2>();
-        Debug.Log("READ: " + moveVector.x + " " + moveVector.y);
         if (!Mathf.Approximately(moveVector.x, 0.0f) || !Mathf.Approximately(moveVector.y, 0.0f))
         {
             lookDirectionVector.Set(moveVector.x, moveVector.y);

@@ -31,7 +31,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""name"": ""Direction"",
                     ""type"": ""Value"",
                     ""id"": ""0ba7f8e9-d748-4461-8781-322dbfa34a64"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Analog"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true

@@ -99,7 +99,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.05656767, y: -0.62133694}
@@ -125,7 +125,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.04734993, y: 0.27620792}
@@ -194,14 +194,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  maxHealth: 2
-  _currentHealth: 0
+  maxHealth: 5
   maxInvinsibleTime: 2
   timeKnockback: 2
   powerKnockback: 50
   detectDistance: 5
   minFollowDistance: 1.5
-  HealthBar: {fileID: 0}
 --- !u!114 &3488704730506095351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +243,6 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   fill: {fileID: 793982606009754057}
-  Offset: {x: 0, y: 0, z: 0}
 --- !u!1001 &2064485876054395190
 PrefabInstance:
   m_ObjectHideFlags: 0

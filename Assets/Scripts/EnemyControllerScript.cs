@@ -10,7 +10,7 @@ public class EnemyControllerScript : MonoBehaviour
     // private Vector2 lookDirection = Vector2.zero;
     public int moveSpeed = 3;
     public int maxHealth = 5;
-    public int _currentHealth = 0;
+    private int _currentHealth;
     public int maxInvinsibleTime = 2;
     private float _currentInvisibleTime;
     private bool isInvisible = false;
@@ -28,10 +28,6 @@ public class EnemyControllerScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         hpBehaviour = GetComponent<HPBehaviour>();
-        if (hpBehaviour != null)
-        {
-            Debug.Log("HERE");
-        }
         // target = FindObjectOfType<CharacterControllerScript>().transform;
         _currentHealth = maxHealth;
         _currentInvisibleTime = maxInvinsibleTime;
@@ -56,14 +52,25 @@ public class EnemyControllerScript : MonoBehaviour
         //     Launch();
         // }
     }
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.transform.tag == "CharacterHitBox")
+        if (other.tag == "CharacterHitBox")
         {
+            Debug.Log("EnemyGetHit");
             // -1 temp
             changeHealth(-1);
         }
+
     }
+    // private void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     if (other.tag == "CharacterHitBox")
+    //     {
+    //         Debug.Log("EnemyGetHit");
+    //         // -1 temp
+    //         // changeHealth(-1);
+    //     }
+    // }
     void FixedUpdate()
     {
         if (directionToPlayer.magnitude <= detectDistance && directionToPlayer.magnitude >= minFollowDistance)
@@ -84,14 +91,16 @@ public class EnemyControllerScript : MonoBehaviour
         // }
         directionToPlayer.Normalize();
         animator.SetFloat("Speed", directionToPlayer.magnitude);
-        if (Mathf.Abs(directionToPlayer.x) >= Mathf.Abs(directionToPlayer.y))
-        {
-            animator.SetFloat("Horizontal", 1);
-        }
-        else
-        {
-            animator.SetFloat("Horizontal", 0);
-        }
+        animator.SetFloat("Horizontal", directionToPlayer.x);
+
+        // if (Mathf.Abs(directionToPlayer.x) >= Mathf.Abs(directionToPlayer.y))
+        // {
+        //     animator.SetFloat("Horizontal", 1);
+        // }
+        // else
+        // {
+        //     animator.SetFloat("Horizontal", 0);
+        // }
 
         rb.MovePosition(new Vector2(transform.position.x + directionToPlayer.x * moveSpeed * Time.deltaTime, transform.position.y + directionToPlayer.y * moveSpeed * Time.deltaTime));
     }
@@ -113,7 +122,9 @@ public class EnemyControllerScript : MonoBehaviour
     }
     private void changeHealth(int value)
     {
+        Debug.Log("_currentHealth: " + _currentHealth);
         _currentHealth = Mathf.Clamp(_currentHealth + value, 0, maxHealth);
+        Debug.Log("_currentHealth after change: " + _currentHealth);
         hpBehaviour.SetHealth(_currentHealth);
         if (_currentHealth == 0)
         {
