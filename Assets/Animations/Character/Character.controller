@@ -135,7 +135,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 4029664095462335139, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
       type: 3}
-    m_Threshold: 0.33333334
+    m_Threshold: 0.14285715
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -144,8 +144,44 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: -4227063573123552143, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
       type: 3}
-    m_Threshold: 0.6666667
+    m_Threshold: 0.2857143
     m_Position: {x: -1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -4227063573123552143, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
+      type: 3}
+    m_Threshold: 0.42857143
+    m_Position: {x: -1, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -4227063573123552143, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
+      type: 3}
+    m_Threshold: 0.5714286
+    m_Position: {x: -1, y: -1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -2516836758741410071, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
+      type: 3}
+    m_Threshold: 0.71428573
+    m_Position: {x: 1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -2516836758741410071, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
+      type: 3}
+    m_Threshold: 0.85714287
+    m_Position: {x: 1, y: 1}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Horizontal
@@ -154,7 +190,7 @@ BlendTree:
     m_Motion: {fileID: -2516836758741410071, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
       type: 3}
     m_Threshold: 1
-    m_Position: {x: 1, y: 0}
+    m_Position: {x: 1, y: -1}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Horizontal
@@ -438,7 +474,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: -2898303553545391652, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
       type: 3}
-    m_Threshold: 0.33333334
+    m_Threshold: 0.14285715
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -447,8 +483,44 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 4299479109944202294, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
       type: 3}
-    m_Threshold: 0.6666667
+    m_Threshold: 0.2857143
     m_Position: {x: -1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 4299479109944202294, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
+      type: 3}
+    m_Threshold: 0.42857143
+    m_Position: {x: -1, y: -1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 4299479109944202294, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
+      type: 3}
+    m_Threshold: 0.5714286
+    m_Position: {x: -1, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 1983884949751192794, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
+      type: 3}
+    m_Threshold: 0.71428573
+    m_Position: {x: 1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 1983884949751192794, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
+      type: 3}
+    m_Threshold: 0.85714287
+    m_Position: {x: 1, y: 1}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Horizontal
@@ -457,7 +529,7 @@ BlendTree:
     m_Motion: {fileID: 1983884949751192794, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
       type: 3}
     m_Threshold: 1
-    m_Position: {x: 1, y: 0}
+    m_Position: {x: 1, y: -1}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Horizontal
