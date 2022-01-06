@@ -9,8 +9,8 @@ public class EnemyControllerScript : MonoBehaviour
     Transform target;
     // private Vector2 lookDirection = Vector2.zero;
     public int moveSpeed = 3;
-    public int maxHealth = 2;
-    private int _currentHealth;
+    public int maxHealth = 5;
+    public int _currentHealth = 0;
     public int maxInvinsibleTime = 2;
     private float _currentInvisibleTime;
     private bool isInvisible = false;
@@ -20,10 +20,8 @@ public class EnemyControllerScript : MonoBehaviour
     public int detectDistance = 5;
     public float minFollowDistance = 1.5f;
     private Vector2 directionToPlayer;
-    public int currentHealth
-    {
-        get { return _currentHealth; }
-    }
+    
+    public HPBehaviour HealthBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,11 +30,19 @@ public class EnemyControllerScript : MonoBehaviour
         // target = FindObjectOfType<CharacterControllerScript>().transform;
         _currentHealth = maxHealth;
         _currentInvisibleTime = maxInvinsibleTime;
+        HealthBar.SetMaxHealth( maxHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            _currentHealth--;
+            HealthBar.SetHealth(_currentHealth);
+            if (_currentHealth <= 0)
+                Destroy(gameObject);
+        }
         // directionToPlayer = target.position - transform.position;
 
         // _xMove = Input.GetAxis("Horizontal");
@@ -56,7 +62,11 @@ public class EnemyControllerScript : MonoBehaviour
     {
         if (other.transform.tag == "CharacterHitBox")
         {
-            Destroy(gameObject);
+            _currentHealth--;
+            HealthBar.SetHealth(_currentHealth);
+            Debug.Log("Attacked" + _currentHealth);
+            if (_currentHealth <= 0)
+                Destroy(gameObject);
         }
     }
     void FixedUpdate()
@@ -157,4 +167,5 @@ public class EnemyControllerScript : MonoBehaviour
     {
         // GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, value);
     }
+
 }
