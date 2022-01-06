@@ -196,8 +196,8 @@ MonoBehaviour:
   moveSpeed: 3
   maxHealth: 5
   maxInvinsibleTime: 2
-  timeKnockback: 2
-  powerKnockback: 50
+  timeBounceBack: 2
+  powerBounceBack: 10
   detectDistance: 5
   minFollowDistance: 1.5
 --- !u!114 &5331977761772352096

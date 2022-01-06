@@ -9,13 +9,13 @@ public class EnemyControllerScript : MonoBehaviour
     Transform target;
     // private Vector2 lookDirection = Vector2.zero;
     public int moveSpeed = 3;
-    public int maxHealth = 5;
-    private int _currentHealth;
+    public float maxHealth = 5f;
+    private float _currentHealth;
     public int maxInvinsibleTime = 2;
     private float _currentInvisibleTime;
     private bool isInvisible = false;
-    public float timeKnockback = 2;
-    public float powerKnockback = 50;
+    public float timeBounceBack = 2;
+    public float powerBounceBack = 10;
     private bool isAttacking = false;
     public int detectDistance = 5;
     public float minFollowDistance = 1.5f;
@@ -39,9 +39,6 @@ public class EnemyControllerScript : MonoBehaviour
     {
         // directionToPlayer = target.position - transform.position;
 
-        // _xMove = Input.GetAxis("Horizontal");
-        // _yMove = Input.GetAxis("Vertical");
-
         // if (isInvisible)
         // {
         //     coutdownInvisibleMode();
@@ -56,21 +53,11 @@ public class EnemyControllerScript : MonoBehaviour
     {
         if (other.tag == "CharacterHitBox")
         {
-            Debug.Log("EnemyGetHit");
             // -1 temp
-            changeHealth(-1);
+            getHit(-1, other.transform);
         }
 
     }
-    // private void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     if (other.tag == "CharacterHitBox")
-    //     {
-    //         Debug.Log("EnemyGetHit");
-    //         // -1 temp
-    //         // changeHealth(-1);
-    //     }
-    // }
     void FixedUpdate()
     {
         if (directionToPlayer.magnitude <= detectDistance && directionToPlayer.magnitude >= minFollowDistance)
@@ -120,37 +107,35 @@ public class EnemyControllerScript : MonoBehaviour
         // isAttacking = false;
 
     }
-    private void changeHealth(int value)
+    private void changeHealth(float value)
     {
-        Debug.Log("_currentHealth: " + _currentHealth);
         _currentHealth = Mathf.Clamp(_currentHealth + value, 0, maxHealth);
-        Debug.Log("_currentHealth after change: " + _currentHealth);
         hpBehaviour.SetHealth(_currentHealth);
         if (_currentHealth == 0)
         {
             Destroy(gameObject);
         }
     }
-    public void getHit()
+    private void getHit(float damageValue, Transform hitByObject)
     {
         if (!isInvisible)
         {
-            enterInvisibleMode();
-            // changeHealth(Contants.VALUE_DAMAGEABLE_ZONE);
-            // StartCoroutine(animationGetHit(damageableZone));
+            // enterInvisibleMode();
+            changeHealth(damageValue);
+            StartCoroutine(animationBounceBackGetHit(hitByObject));
         }
     }
-    public IEnumerator animationGetHit(Transform obj)
+    private IEnumerator animationBounceBackGetHit(Transform hitByObject)
     {
-        // animator.SetTrigger("GetHit");
-        // float timeCur = 0;
-        // while (timeKnockback > timeCur)
-        // {
-        //     timeCur += Time.deltaTime;
-        //     Vector2 vector2 = obj.position - transform.position;
-        //     vector2 = vector2.normalized;
-        //     rb.AddForce(-vector2 * powerKnockback);
-        // }
+        animator.SetTrigger("GetHit");
+        float timeCur = 0;
+        while (timeBounceBack > timeCur)
+        {
+            timeCur += Time.deltaTime;
+            Vector2 vector2 = hitByObject.position - transform.position;
+            vector2 = vector2.normalized;
+            rb.AddForce(-vector2 * powerBounceBack);
+        }
         yield return 0;
     }
     private void enterInvisibleMode()
