@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Spriter2UnityDX;
 
 public class CharacterControllerScript : MonoBehaviour
 {
@@ -16,8 +17,8 @@ public class CharacterControllerScript : MonoBehaviour
     public int maxInvinsibleTime = 2;
     private float _currentInvisibleTime;
     private bool isInvisible = false;
-    public float timeKnockback = 2;
-    public float powerKnockback = 50;
+    public float timeBounceBack = 2;
+    public float powerBounceBack = 10;
     private bool isAttacking = false;
 
     public int currentHealth
@@ -40,7 +41,6 @@ public class CharacterControllerScript : MonoBehaviour
         _currentHealth = maxHealth;
         _currentInvisibleTime = maxInvinsibleTime;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -96,25 +96,38 @@ public class CharacterControllerScript : MonoBehaviour
     private void changeHealth(int value)
     {
         _currentHealth = Mathf.Clamp(_currentHealth + value, 0, maxHealth);
+        // if die
     }
-    public IEnumerator animationGetHit(Transform obj)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        // animator.SetTrigger("GetHit");
-        // float timeCur = 0;
-        // while (timeKnockback > timeCur)
-        // {
-        //     timeCur += Time.deltaTime;
-        //     Vector2 vector2 = obj.position - transform.position;
-        //     vector2 = vector2.normalized;
-        //     rb.AddForce(-vector2 * powerKnockback);
-        // }
+        if (other.tag == "Enemy")
+        {
+            if (!isInvisible)
+            {
+                enterInvisibleMode();
+                // changeHealth()
+                StartCoroutine(animationGetHit(other.transform));
+            }
+        }
+    }
+    public IEnumerator animationGetHit(Transform hitByObject)
+    {
+        animator.SetTrigger("GetHit");
+        float timeCur = 0;
+        while (timeBounceBack > timeCur)
+        {
+            timeCur += Time.deltaTime;
+            Vector2 vector2 = hitByObject.position - transform.position;
+            vector2 = vector2.normalized;
+            rb.AddForce(-vector2 * powerBounceBack);
+        }
         yield return 0;
     }
     private void enterInvisibleMode()
     {
         isInvisible = true;
         _currentInvisibleTime = maxInvinsibleTime;
-        // changeOpacityCharacter(Contants.HALF_FLOAT);
+        changeOpacityCharacter(0.5f);
     }
 
     private void coutdownInvisibleMode()
@@ -122,17 +135,16 @@ public class CharacterControllerScript : MonoBehaviour
         if (_currentInvisibleTime > 0)
         {
             _currentInvisibleTime -= Time.deltaTime;
-
         }
         else if (_currentInvisibleTime <= 0)
         {
             isInvisible = false;
-            // changeOpacityCharacter(Contants.FULL_FLOAT);
+            changeOpacityCharacter(1f);
         }
     }
 
     private void changeOpacityCharacter(float value)
     {
-        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, value);
+        GetComponent<EntityRenderer>().Color = new Color(1, 1, 1, value);
     }
 }
