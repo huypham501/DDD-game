@@ -41,13 +41,13 @@ public class Inventory : MonoBehaviour
         foreach (Item item in listItem)
         {
             gameObjectTemp = Instantiate(itemCell, transform) as GameObject;
-            gameObjectTemp.GetComponent<Image>().sprite = item.sprite_Front_default;
+            gameObjectTemp.GetComponent<InventoryItemCell>().setItemImage(item.sprite_Front_default);
         }
     }
     private void notifyAddItemUIInventory(Item item)
     {
         GameObject gameObjectTemp;
         gameObjectTemp = Instantiate(itemCell, transform) as GameObject;
-        gameObjectTemp.GetComponent<Image>().sprite = item.sprite_Front_default;
+        gameObjectTemp.GetComponent<InventoryItemCell>().setItemImage(item.sprite_Front_default);
     }
 }
