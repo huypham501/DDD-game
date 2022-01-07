@@ -15,7 +15,7 @@ public class EnemyControllerScript : MonoBehaviour
     private float _currentInvisibleTime;
     private bool isInvisible = false;
     public float timeBounceBack = 2;
-    public float powerBounceBack = 10;
+    public float powerBounceBack = 20;
     private bool isAttacking = false;
     public int detectDistance = 5;
     public float minFollowDistance = 1.5f;
@@ -48,15 +48,6 @@ public class EnemyControllerScript : MonoBehaviour
         //     Debug.Log("Attack");
         //     Launch();
         // }
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag == "CharacterHitBox")
-        {
-            // -1 temp
-            getHit(-1, other.transform);
-        }
-
     }
     void FixedUpdate()
     {
@@ -107,6 +98,22 @@ public class EnemyControllerScript : MonoBehaviour
         // isAttacking = false;
 
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "CharacterHitBox")
+        {
+            
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.gameObject.tag == "CharacterHitBox")
+        {
+            // -1 temp
+            changeHealth(-1);
+            getHit(other.otherCollider.gameObject.transform);
+        }
+    }
     private void changeHealth(float value)
     {
         _currentHealth = Mathf.Clamp(_currentHealth + value, 0, maxHealth);
@@ -116,12 +123,11 @@ public class EnemyControllerScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void getHit(float damageValue, Transform hitByObject)
+    private void getHit(Transform hitByObject)
     {
         if (!isInvisible)
         {
             // enterInvisibleMode();
-            changeHealth(damageValue);
             StartCoroutine(animationBounceBackGetHit(hitByObject));
         }
     }

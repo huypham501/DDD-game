@@ -18,7 +18,7 @@ public class CharacterControllerScript : MonoBehaviour
     private float _currentInvisibleTime;
     private bool isInvisible = false;
     public float timeBounceBack = 2;
-    public float powerBounceBack = 10;
+    public float powerBounceBack = 20;
     private bool isAttacking = false;
 
     public int currentHealth
@@ -98,9 +98,9 @@ public class CharacterControllerScript : MonoBehaviour
         _currentHealth = Mathf.Clamp(_currentHealth + value, 0, maxHealth);
         // if die
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.tag == "Enemy")
+        if (other.collider.gameObject.tag == "Enemy" && other.otherCollider.gameObject.tag == "Player")
         {
             if (!isInvisible)
             {
