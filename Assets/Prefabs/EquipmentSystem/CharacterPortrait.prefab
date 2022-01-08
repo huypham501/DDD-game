@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 5067396518589238790}
   - component: {fileID: 5067396518589238788}
   - component: {fileID: 5067396518589238791}
+  - component: {fileID: 1622808701309380835}
   m_Layer: 5
   m_Name: Placeholder_HelmetCell
   m_TagString: Untagged
@@ -321,6 +322,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1622808701309380835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5067396518589238809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a3bff27f5717d43bb32a94963be1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipCellImage: {fileID: 5067396519454334061}
 --- !u!1 &5067396518611584382
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +346,7 @@ GameObject:
   - component: {fileID: 5067396518611584383}
   - component: {fileID: 5067396518611584381}
   - component: {fileID: 5067396518611584380}
+  - component: {fileID: 8868237415104749963}
   m_Layer: 5
   m_Name: Placeholder_ShieldCell
   m_TagString: Untagged
@@ -397,6 +412,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8868237415104749963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5067396518611584382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a3bff27f5717d43bb32a94963be1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipCellImage: {fileID: 5067396518725785106}
 --- !u!1 &5067396518725785106
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +511,7 @@ GameObject:
   - component: {fileID: 5067396518741567040}
   - component: {fileID: 5067396518741567054}
   - component: {fileID: 5067396518741567041}
+  - component: {fileID: 1938557943012689603}
   m_Layer: 5
   m_Name: Placeholder_SwordCell
   m_TagString: Untagged
@@ -548,6 +577,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1938557943012689603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5067396518741567043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a3bff27f5717d43bb32a94963be1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipCellImage: {fileID: 5067396518453806114}
 --- !u!1 &5067396518937802569
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,6 +938,7 @@ GameObject:
   - component: {fileID: 5067396519599381879}
   - component: {fileID: 5067396519599381877}
   - component: {fileID: 5067396519599381876}
+  - component: {fileID: 2600625548569279427}
   m_Layer: 5
   m_Name: Placeholder_PotionCell
   m_TagString: Untagged
@@ -961,6 +1004,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2600625548569279427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5067396519599381878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a3bff27f5717d43bb32a94963be1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipCellImage: {fileID: 5067396520221204921}
 --- !u!1 &5067396519883476257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,6 +1275,7 @@ GameObject:
   - component: {fileID: 5067396520083202715}
   - component: {fileID: 5067396520083202713}
   - component: {fileID: 5067396520083202712}
+  - component: {fileID: 6846306500309979284}
   m_Layer: 5
   m_Name: Placeholder_ArmorCell
   m_TagString: Untagged
@@ -1284,6 +1341,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6846306500309979284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5067396520083202714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a3bff27f5717d43bb32a94963be1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipCellImage: {fileID: 5067396520208935390}
 --- !u!1 &5067396520206051507
 GameObject:
   m_ObjectHideFlags: 0
