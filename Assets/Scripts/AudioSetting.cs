@@ -17,14 +17,12 @@ public class AudioSetting : MonoBehaviour
         ContinueSettings();
     }
 
-    // Update is called once per frame
     private void ContinueSettings()
     {
         backgroundFloat = PlayerPrefs.GetFloat(BackgroundPref);
         soundEffectFloat = PlayerPrefs.GetFloat(SoundEffectsPref);
         backgroundSlider.value = backgroundFloat;
         soundEffectSlider.value = soundEffectFloat;
-        Debug.Log("Get for next floor");
         backgroundAudio.volume = backgroundFloat;
         for (int i = 0; i < SoundEffectAudio.Length; i++)
         {
@@ -33,7 +31,6 @@ public class AudioSetting : MonoBehaviour
     }
     public void UpdateSound()
     {
-        Debug.Log("Update");
         backgroundAudio.volume = backgroundSlider.value;
         for (int i = 0; i < SoundEffectAudio.Length; i++)
         {
@@ -46,6 +43,5 @@ public class AudioSetting : MonoBehaviour
     {
         PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
         PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectSlider.value);
-        Debug.Log("Update saved: " + backgroundFloat + "|" + soundEffectFloat);
     }
 }
