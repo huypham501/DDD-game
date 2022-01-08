@@ -23,13 +23,19 @@ public class Inventory : MonoBehaviour
     {
         // Or load from save
     }
-    private void OnEnable() {
+    private void OnEnable()
+    {
 
     }
     public void addItem(Item item)
     {
         listItem.Add(item);
         notifyAddItemUIInventory(item);
+    }
+    public void removeItem(int index)
+    {
+        listItem.RemoveAt(index);
+        notifyRemoveItemUIInventory(index);
     }
     private void initUIInventory()
     {
@@ -45,5 +51,10 @@ public class Inventory : MonoBehaviour
         GameObject gameObjectTemp;
         gameObjectTemp = Instantiate(itemCell, transform) as GameObject;
         gameObjectTemp.GetComponent<InventoryItemCell>().setItemImage(item.sprite_Front_default);
+    }
+    private void notifyRemoveItemUIInventory(int index)
+    {
+        Destroy(transform.GetChild(index).gameObject);
+        Debug.Log("listItem.Count: " + listItem.Count);
     }
 }

@@ -9,7 +9,6 @@ public class EquipSlot : MonoBehaviour, IDropHandler
     public GameObject equipCellImage;
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("OnDrop");
         if (eventData.pointerDrag != null)
         {
             eventData.pointerDrag.GetComponent<ItemDragDrop>().setEquip();

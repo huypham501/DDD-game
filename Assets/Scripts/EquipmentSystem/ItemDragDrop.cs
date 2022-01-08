@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class ItemDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    public GameObject parentInventoryItemCell;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Vector2 rootPositionVector2;
@@ -29,23 +30,20 @@ public class ItemDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown");
+
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnBeginDrag");
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = 0.6f;
         transform.SetParent(CanvasController.instance.canvas.transform);
     }
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag");
         rectTransform.anchoredPosition += eventData.delta / CanvasController.instance.getScaleFactor();
     }
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag");
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
         if (!isEquip)
@@ -58,6 +56,6 @@ public class ItemDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
     {
         isEquip = true;
         Destroy(gameObject);
-        Debug.Log("HEREE");
+        Inventory.instance.removeItem(parentInventoryItemCell.GetComponent<InventoryItemCell>().getIndex());
     }
 }
