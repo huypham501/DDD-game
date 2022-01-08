@@ -6947,6 +6947,7 @@ GameObject:
   - component: {fileID: 1416672239}
   - component: {fileID: 1416672238}
   - component: {fileID: 1416672242}
+  - component: {fileID: 1416672243}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7050,6 +7051,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIInventoryObject: {fileID: 1896598461}
   UIEquipment: {fileID: 2070280081}
+--- !u!114 &1416672243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416672237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e3ae81be8a13a047a5ac54c3fcd9f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1416672240}
 --- !u!224 &1430979670 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2719521585544766523, guid: f8bff8d758fd9b540b384db7df4d8fba,
@@ -11011,6 +11025,16 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 870855956}
+    - target: {fileID: 5067396518409288603, guid: 7fe998045f3908145bf7524e24ca7ded,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -6.1329956
+      objectReference: {fileID: 0}
+    - target: {fileID: 5067396518409288603, guid: 7fe998045f3908145bf7524e24ca7ded,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.0449982
+      objectReference: {fileID: 0}
     - target: {fileID: 5067396519241913988, guid: 7fe998045f3908145bf7524e24ca7ded,
         type: 3}
       propertyPath: m_Pivot.x

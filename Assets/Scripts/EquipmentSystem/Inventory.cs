@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour
         // Or load from save
     }
     private void OnEnable() {
-        Debug.Log("Inventory enable");
+
     }
     public void addItem(Item item)
     {
