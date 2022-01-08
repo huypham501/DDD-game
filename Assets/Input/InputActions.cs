@@ -29,12 +29,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Direction"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""0ba7f8e9-d748-4461-8781-322dbfa34a64"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Analog"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Attack"",
@@ -50,7 +50,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""2D Vector"",
                     ""id"": ""093ca7d6-52b4-42b1-b674-23a07818988f"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -105,7 +105,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""2D Vector"",
                     ""id"": ""27331725-cebb-474d-b365-a2d60b3f7912"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

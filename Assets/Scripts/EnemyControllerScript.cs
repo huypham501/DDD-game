@@ -9,44 +9,35 @@ public class EnemyControllerScript : MonoBehaviour
     Transform target;
     // private Vector2 lookDirection = Vector2.zero;
     public int moveSpeed = 3;
-    public int maxHealth = 5;
-    public int _currentHealth = 0;
+    public float maxHealth = 5f;
+    private float _currentHealth;
     public int maxInvinsibleTime = 2;
     private float _currentInvisibleTime;
     private bool isInvisible = false;
-    public float timeKnockback = 2;
-    public float powerKnockback = 50;
+    public float timeBounceBack = 2;
+    public float powerBounceBack = 20;
     private bool isAttacking = false;
     public int detectDistance = 5;
     public float minFollowDistance = 1.5f;
     private Vector2 directionToPlayer;
-    
-    public HPBehaviour HealthBar;
+
+    HPBehaviour hpBehaviour;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        hpBehaviour = GetComponent<HPBehaviour>();
         // target = FindObjectOfType<CharacterControllerScript>().transform;
         _currentHealth = maxHealth;
         _currentInvisibleTime = maxInvinsibleTime;
-        HealthBar.SetMaxHealth( maxHealth);
+        hpBehaviour.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            _currentHealth--;
-            HealthBar.SetHealth(_currentHealth);
-            if (_currentHealth <= 0)
-                Destroy(gameObject);
-        }
         // directionToPlayer = target.position - transform.position;
-
-        // _xMove = Input.GetAxis("Horizontal");
-        // _yMove = Input.GetAxis("Vertical");
 
         // if (isInvisible)
         // {
@@ -58,15 +49,15 @@ public class EnemyControllerScript : MonoBehaviour
         //     Launch();
         // }
     }
-    private void OnCollisionEnter2D(Collision2D other)
+    void FixedUpdate()
     {
-        if (other.transform.tag == "CharacterHitBox")
+        if (directionToPlayer.magnitude <= detectDistance && directionToPlayer.magnitude >= minFollowDistance)
         {
-            _currentHealth--;
-            HealthBar.SetHealth(_currentHealth);
-            Debug.Log("Attacked" + _currentHealth);
-            if (_currentHealth <= 0)
-                Destroy(gameObject);
+            followPlayer();
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
         }
     }
     private void followPlayer()
@@ -78,31 +69,20 @@ public class EnemyControllerScript : MonoBehaviour
         // }
         directionToPlayer.Normalize();
         animator.SetFloat("Speed", directionToPlayer.magnitude);
-        if (Mathf.Abs(directionToPlayer.x) >= Mathf.Abs(directionToPlayer.y))
-        {
-            animator.SetFloat("Horizontal", 1);
-        }
-        else
-        {
-            animator.SetFloat("Horizontal", 0);
-        }
+        animator.SetFloat("Horizontal", directionToPlayer.x);
+
+        // if (Mathf.Abs(directionToPlayer.x) >= Mathf.Abs(directionToPlayer.y))
+        // {
+        //     animator.SetFloat("Horizontal", 1);
+        // }
+        // else
+        // {
+        //     animator.SetFloat("Horizontal", 0);
+        // }
 
         rb.MovePosition(new Vector2(transform.position.x + directionToPlayer.x * moveSpeed * Time.deltaTime, transform.position.y + directionToPlayer.y * moveSpeed * Time.deltaTime));
     }
-    void FixedUpdate()
-    {
-        // Vector2 vector2 = new Vector2(_xMove, _yMove);
-        // Debug.Log(directionToPlayer.magnitude);
-        if (directionToPlayer.magnitude <= detectDistance && directionToPlayer.magnitude >= minFollowDistance)
-        {
-            followPlayer();
-        }
-        else
-        {
-            rb.velocity = Vector2.zero;
-        }
-    }
-    private void Launch()
+    private void attack()
     {
         // GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Vector2.up * 0.5f, Quaternion.identity);
 
@@ -118,35 +98,50 @@ public class EnemyControllerScript : MonoBehaviour
         // isAttacking = false;
 
     }
-    private void changeHealth(int value)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        // _currentHealth = Mathf.Clamp(_currentHealth + value, 0, maxHealth);
+        if (other.tag == "CharacterHitBox")
+        {
+            
+        }
     }
-
-    public void eatenStrawberry()
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        // changeHealth(Contants.VALUE_STRAWBERRY);
+        if (other.collider.gameObject.tag == "CharacterHitBox")
+        {
+            // -1 temp
+            changeHealth(-1);
+            getHit(other.otherCollider.gameObject.transform);
+        }
     }
-    public void stepOnDamageableZone(Transform damageableZone)
+    private void changeHealth(float value)
     {
-        // if (!isInvisible)
-        // {
-        //     enterInvisibleMode();
-        //     // changeHealth(Contants.VALUE_DAMAGEABLE_ZONE);
-        //     StartCoroutine(animationGetHit(damageableZone));
-        // }
+        _currentHealth = Mathf.Clamp(_currentHealth + value, 0, maxHealth);
+        hpBehaviour.SetHealth(_currentHealth);
+        if (_currentHealth == 0)
+        {
+            Destroy(gameObject);
+        }
     }
-    public IEnumerator animationGetHit(Transform obj)
+    private void getHit(Transform hitByObject)
     {
-        // animator.SetTrigger("GetHit");
-        // float timeCur = 0;
-        // while (timeKnockback > timeCur)
-        // {
-        //     timeCur += Time.deltaTime;
-        //     Vector2 vector2 = obj.position - transform.position;
-        //     vector2 = vector2.normalized;
-        //     rb.AddForce(-vector2 * powerKnockback);
-        // }
+        if (!isInvisible)
+        {
+            // enterInvisibleMode();
+            StartCoroutine(animationBounceBackGetHit(hitByObject));
+        }
+    }
+    private IEnumerator animationBounceBackGetHit(Transform hitByObject)
+    {
+        animator.SetTrigger("GetHit");
+        float timeCur = 0;
+        while (timeBounceBack > timeCur)
+        {
+            timeCur += Time.deltaTime;
+            Vector2 vector2 = hitByObject.position - transform.position;
+            vector2 = vector2.normalized;
+            rb.AddForce(-vector2 * powerBounceBack);
+        }
         yield return 0;
     }
     private void enterInvisibleMode()

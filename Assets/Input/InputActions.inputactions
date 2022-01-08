@@ -7,11 +7,12 @@
             "actions": [
                 {
                     "name": "Direction",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "0ba7f8e9-d748-4461-8781-322dbfa34a64",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Analog",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Attack",
@@ -19,14 +20,15 @@
                     "id": "02d6002e-e7cd-42aa-a729-1e50083c63a1",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "2D Vector",
                     "id": "093ca7d6-52b4-42b1-b674-23a07818988f",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -81,7 +83,7 @@
                 {
                     "name": "2D Vector",
                     "id": "27331725-cebb-474d-b365-a2d60b3f7912",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

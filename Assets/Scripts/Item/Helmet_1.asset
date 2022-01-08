@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842656b4657dbd1488cf9f2803695a27, type: 3}
+  m_Name: Helmet_1
+  m_EditorClassIdentifier: 
+  name: Helmet_1
+  itemTypeEnum: 0
+  sprite_Front_default: {fileID: 21300000, guid: 18fc52bfe69d3084288b78d2927bde9f,
+    type: 3}
+  sprite_Back: {fileID: 21300000, guid: fc884f262dde43b4e85b5f52ee5dc5b9, type: 3}
+  sprite_Left: {fileID: 21300000, guid: cb752b25e15bd7447b3b18820dce848a, type: 3}
+  sprite_Right: {fileID: 21300000, guid: b193618a25724c54bacc27ff22e6f42b, type: 3}
