@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public GameObject itemCell;
-    private List<Item> listItem;
+    private List<Item> listItem = new List<Item>();
     public static Inventory instance;
     #region Singleton
     private void Awake()
@@ -19,16 +19,12 @@ public class Inventory : MonoBehaviour
     }
     #endregion
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         // Or load from save
-        listItem = new List<Item>();
-        initUIInventory();
     }
-    // Update is called once per frame
-    void Update()
-    {
-
+    private void OnEnable() {
+        Debug.Log("Inventory enable");
     }
     public void addItem(Item item)
     {

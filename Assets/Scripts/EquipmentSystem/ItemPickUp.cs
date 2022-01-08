@@ -18,10 +18,8 @@ public class ItemPickUp : MonoBehaviour
         // {
         //     EquipmentSystem.instance.equipItem(item);
         // }
-        Debug.Log("Here");
         if (Inventory.instance != null)
         {
-            Debug.Log("Ok");
             Inventory.instance.addItem(item);
         }
         Destroy(gameObject);

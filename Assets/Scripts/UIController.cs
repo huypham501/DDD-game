@@ -8,6 +8,10 @@ public class UIController : MonoBehaviour
     private bool isOpenUIInventory;
     private void Awake()
     {
+        
+    }
+    private void Start()
+    {
         isOpenUIInventory = false;
         UIInventoryObject.SetActive(isOpenUIInventory);
     }
