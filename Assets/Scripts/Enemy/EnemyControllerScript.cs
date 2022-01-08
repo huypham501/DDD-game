@@ -18,8 +18,9 @@ public class EnemyControllerScript : MonoBehaviour
     public float powerBounceBack = 20;
     private bool isAttacking = false;
     public int detectDistance = 5;
-    public float minFollowDistance = 1.5f;
+    public float minFollowDistance = 1f;
     private Vector2 directionToPlayer;
+    private Vector2 moveVector;
 
     HPBehaviour hpBehaviour;
     // Start is called before the first frame update
@@ -28,7 +29,7 @@ public class EnemyControllerScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         hpBehaviour = GetComponent<HPBehaviour>();
-        // target = FindObjectOfType<CharacterControllerScript>().transform;
+        target = CharacterControllerScript.instance.transform;
         _currentHealth = maxHealth;
         _currentInvisibleTime = maxInvinsibleTime;
         hpBehaviour.SetMaxHealth(maxHealth);
@@ -37,17 +38,7 @@ public class EnemyControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // directionToPlayer = target.position - transform.position;
-
-        // if (isInvisible)
-        // {
-        //     coutdownInvisibleMode();
-        // }
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     Debug.Log("Attack");
-        //     Launch();
-        // }
+        directionToPlayer = target.position - transform.position;
     }
     void FixedUpdate()
     {
@@ -57,28 +48,21 @@ public class EnemyControllerScript : MonoBehaviour
         }
         else
         {
-            rb.velocity = Vector2.zero;
+            // rb.velocity = Vector2.zero;
         }
     }
     private void followPlayer()
     {
-        // if (!Mathf.Approximately(directionToPlayer.x, 0.0f) || !Mathf.Approximately(directionToPlayer.y, 0.0f))
-        // {
-        //     lookDirection.Set(directionToPlayer.x, directionToPlayer.y);
-        //     lookDirection.Normalize();
-        // }
         directionToPlayer.Normalize();
         animator.SetFloat("Speed", directionToPlayer.magnitude);
-        animator.SetFloat("Horizontal", directionToPlayer.x);
-
-        // if (Mathf.Abs(directionToPlayer.x) >= Mathf.Abs(directionToPlayer.y))
-        // {
-        //     animator.SetFloat("Horizontal", 1);
-        // }
-        // else
-        // {
-        //     animator.SetFloat("Horizontal", 0);
-        // }
+        if (directionToPlayer.x > 0)
+        {
+            animator.SetFloat("Horizontal", 1);
+        }
+        else
+        {
+            animator.SetFloat("Horizontal", 0);
+        }
 
         rb.MovePosition(new Vector2(transform.position.x + directionToPlayer.x * moveSpeed * Time.deltaTime, transform.position.y + directionToPlayer.y * moveSpeed * Time.deltaTime));
     }

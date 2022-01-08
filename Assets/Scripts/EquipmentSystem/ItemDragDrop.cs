@@ -22,7 +22,6 @@ public class ItemDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
             rootParent = transform.parent;
         }
     }
-
     // Update is called once per frame
     void Update()
     {

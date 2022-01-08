@@ -199,7 +199,7 @@ MonoBehaviour:
   timeBounceBack: 2
   powerBounceBack: 20
   detectDistance: 5
-  minFollowDistance: 1.5
+  minFollowDistance: 1
 --- !u!114 &5331977761772352096
 MonoBehaviour:
   m_ObjectHideFlags: 0

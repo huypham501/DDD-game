@@ -20,12 +20,21 @@ public class CharacterControllerScript : MonoBehaviour
     public float timeBounceBack = 2;
     public float powerBounceBack = 20;
     private bool isAttacking = false;
-
+    public static CharacterControllerScript instance;
     public int currentHealth
     {
         get { return _currentHealth; }
     }
-    // Start is called before the first frame update
+    #region Singleton
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            return;
+        }
+        instance = this;
+    }
+    #endregion
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
