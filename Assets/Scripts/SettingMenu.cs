@@ -17,6 +17,7 @@ public class SettingMenu : MonoBehaviour
     void Start()
     {
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
+        Debug.Log("firstPlayInt: " + firstPlayInt);
         if(firstPlayInt == 0)
         {
             backgroundFloat = .125f;
@@ -26,13 +27,17 @@ public class SettingMenu : MonoBehaviour
             PlayerPrefs.SetFloat(BackgroundPref, backgroundFloat);
             PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectFloat);
             PlayerPrefs.SetInt(FirstPlay, -1);
+            Debug.Log("FirstPlay: "+ FirstPlay);
+            Debug.Log("FirstPlay: " + PlayerPrefs.GetInt(FirstPlay));
         }
         else
         {
+            Debug.Log("NotFirst");
             backgroundFloat = PlayerPrefs.GetFloat(BackgroundPref);
             backgroundSlider.value = backgroundFloat;
             soundEffectFloat =  PlayerPrefs.GetFloat(SoundEffectsPref);
             soundEffectSlider.value = soundEffectFloat;
+            Debug.Log("Get: " + backgroundFloat + "|" + soundEffectFloat);
         }
     }
 
@@ -40,6 +45,7 @@ public class SettingMenu : MonoBehaviour
     {
         PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
         PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectSlider.value);
+        Debug.Log(backgroundFloat + "|" +  soundEffectFloat);
     }
 
     void OnApplicationFocus(bool infocus)
@@ -47,11 +53,13 @@ public class SettingMenu : MonoBehaviour
         if (!infocus)
         {
             SaveSoundSetting();
+            Debug.Log("Saved");
         }
     }
 
     public void UpdateSound()
     {
+        Debug.Log("Update");
         backgroundAudio.volume = backgroundSlider.value;
         for(int i = 0; i < SoundEffectAudio.Length; i++)
         {
