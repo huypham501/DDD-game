@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842656b4657dbd1488cf9f2803695a27, type: 3}
   m_Name: HealPotionSmall
   m_EditorClassIdentifier: 
-  name: 
-  itemTypeEnum: 0
-  sprite_Front_default: {fileID: 0}
+  name: HealPotionSmall
+  itemTypeEnum: 4
+  sprite_Front_default: {fileID: 21300000, guid: 3ae454f406cc9f64b8f32484d755f390,
+    type: 3}
   sprite_Back: {fileID: 0}
   sprite_Left: {fileID: 0}
   sprite_Right: {fileID: 0}
