@@ -7049,6 +7049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIInventoryObject: {fileID: 1896598461}
+  UIEquipment: {fileID: 2070280081}
 --- !u!224 &1430979670 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2719521585544766523, guid: f8bff8d758fd9b540b384db7df4d8fba,
@@ -7333,6 +7334,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2719521585544766520, guid: f8bff8d758fd9b540b384db7df4d8fba,
     type: 3}
   m_PrefabInstance: {fileID: 2719521586396536941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2070280081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5067396519241913991, guid: 7fe998045f3908145bf7524e24ca7ded,
+    type: 3}
+  m_PrefabInstance: {fileID: 5067396519386341654}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &2070280082 stripped
 RectTransform:
@@ -11112,7 +11119,7 @@ PrefabInstance:
     - target: {fileID: 5067396519241913991, guid: 7fe998045f3908145bf7524e24ca7ded,
         type: 3}
       propertyPath: m_Name
-      value: CharacterPortrait
+      value: UIEquipment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fe998045f3908145bf7524e24ca7ded, type: 3}

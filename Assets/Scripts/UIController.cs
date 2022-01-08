@@ -5,15 +5,19 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
     public GameObject UIInventoryObject;
+    public GameObject UIEquipment;
     private bool isOpenUIInventory;
+    private bool isOpenUIEquipment;
     private void Awake()
     {
-        
+
     }
     private void Start()
     {
         isOpenUIInventory = false;
+        isOpenUIEquipment = false;
         UIInventoryObject.SetActive(isOpenUIInventory);
+        UIEquipment.SetActive(isOpenUIEquipment);
     }
     private void Update()
     {
@@ -22,6 +26,13 @@ public class UIController : MonoBehaviour
         {
             isOpenUIInventory = !isOpenUIInventory;
             UIInventoryObject.SetActive(isOpenUIInventory);
+        }
+        #endregion
+        #region Equipment window controller
+        else if (Input.GetKeyDown(KeyCode.V))
+        {
+            isOpenUIEquipment = !isOpenUIEquipment;
+            UIEquipment.SetActive(isOpenUIEquipment);
         }
         #endregion
     }
