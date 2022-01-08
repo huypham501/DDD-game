@@ -37,6 +37,11 @@ public class Inventory : MonoBehaviour
         listItem.RemoveAt(index);
         notifyRemoveItemUIInventory(index);
     }
+    public Item getItem(int index)
+    {
+        // Sure index not throw exception
+        return listItem[index];
+    }
     private void initUIInventory()
     {
         GameObject gameObjectTemp;

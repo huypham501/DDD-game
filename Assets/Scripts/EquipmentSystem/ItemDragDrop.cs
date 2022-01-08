@@ -58,4 +58,8 @@ public class ItemDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
         Destroy(gameObject);
         Inventory.instance.removeItem(parentInventoryItemCell.GetComponent<InventoryItemCell>().getIndex());
     }
+    public Item getItem()
+    {
+        return Inventory.instance.getItem(parentInventoryItemCell.GetComponent<InventoryItemCell>().getIndex());
+    }
 }

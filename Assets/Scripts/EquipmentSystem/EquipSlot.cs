@@ -7,12 +7,17 @@ using UnityEngine.UI;
 public class EquipSlot : MonoBehaviour, IDropHandler
 {
     public GameObject equipCellImage;
+    public ItemTypeEnum itemEquipTypeEnum;
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null)
         {
-            eventData.pointerDrag.GetComponent<ItemDragDrop>().setEquip();
-            equipItem(eventData.pointerDrag.GetComponent<Image>().sprite);
+            ItemDragDrop itemDragDropTemp = eventData.pointerDrag.GetComponent<ItemDragDrop>();
+            if (itemDragDropTemp != null && itemDragDropTemp.getItem().GetItemTypeEnum() == itemEquipTypeEnum)
+            {
+                itemDragDropTemp.setEquip();
+                equipItem(eventData.pointerDrag.GetComponent<Image>().sprite);
+            }
         }
     }
     private void equipItem(Sprite otherSprite)

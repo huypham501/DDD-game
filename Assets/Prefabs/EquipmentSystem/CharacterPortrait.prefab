@@ -335,6 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipCellImage: {fileID: 5067396519454334061}
+  itemEquipTypeEnum: 0
 --- !u!1 &5067396518611584382
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,6 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipCellImage: {fileID: 5067396518725785106}
+  itemEquipTypeEnum: 3
 --- !u!1 &5067396518725785106
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,6 +592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipCellImage: {fileID: 5067396518453806114}
+  itemEquipTypeEnum: 2
 --- !u!1 &5067396518937802569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,6 +1020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipCellImage: {fileID: 5067396520221204921}
+  itemEquipTypeEnum: 4
 --- !u!1 &5067396519883476257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,6 +1358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipCellImage: {fileID: 5067396520208935390}
+  itemEquipTypeEnum: 1
 --- !u!1 &5067396520206051507
 GameObject:
   m_ObjectHideFlags: 0
