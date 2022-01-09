@@ -15,10 +15,10 @@ public class EnemyControllerScript : MonoBehaviour
     private bool isReachEndOfPath = false;
     // private Vector2 lookDirection = Vector2.zero;
     public float moveSpeed = 300;
-    public float maxHealth = 5f;
+    public float maxHealth = 50f;
     private float _currentHealth;
     public float timeBounceBack = 2;
-    public float powerBounceBack = 50f;
+    public float powerBounceBack = 100f;
     public int detectDistance = 5;
     public float minFollowDistance = 1f;
     private Vector2 lookDirection;
@@ -99,8 +99,7 @@ public class EnemyControllerScript : MonoBehaviour
     {
         if (other.collider.gameObject.tag == "CharacterHitBox")
         {
-            // -1 temp
-            changeHealth(-1);
+            changeHealth((-1) * CharacterController.instance.characterStats.strength);
             getHit(other.otherCollider.gameObject.transform);
         }
     }

@@ -10,7 +10,7 @@ public class EquipSlot : MonoBehaviour, IDropHandler
     public ItemTypeEnum itemEquipTypeEnum;
     public void OnDrop(PointerEventData eventData)
     {
-        if (eventData.pointerDrag != null)
+        if (eventData.pointerDrag != null && !CharacterController.instance.isDead)
         {
             ItemDragDrop itemDragDropTemp = eventData.pointerDrag.GetComponent<ItemDragDrop>();
             if (itemDragDropTemp != null && itemDragDropTemp.getItem().itemTypeEnum == itemEquipTypeEnum)

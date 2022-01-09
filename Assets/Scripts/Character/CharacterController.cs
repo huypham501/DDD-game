@@ -21,7 +21,7 @@ public class CharacterController : MonoBehaviour
     private bool isInvisible = false;
     public float timeBounceBack = 2;
     public float powerBounceBack = 20;
-    private bool isAttacking = false;
+    public bool isDead = false;
     public static CharacterController instance;
     public float currentHealth
     {
@@ -55,6 +55,10 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
         if (isInvisible)
         {
             coutdownInvisibleMode();
@@ -62,6 +66,10 @@ public class CharacterController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (isDead)
+        {
+            return;
+        }
         animator.SetFloat("Speed", moveVector.magnitude);
         if (Mathf.Approximately(Mathf.Abs(lookDirectionVector.x), Mathf.Abs(lookDirectionVector.y)))
         {
@@ -117,6 +125,12 @@ public class CharacterController : MonoBehaviour
             {
                 enterInvisibleMode();
                 // changeHealth()
+                if (_currentHealth <= 0)
+                {
+                    isDead = true;
+                    animator.SetBool("isDead", isDead);
+                    return;
+                }
                 StartCoroutine(animationGetHit(other.transform));
             }
         }

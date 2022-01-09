@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Armor_1_Stats
   m_EditorClassIdentifier: 
   strength: 1
-  healthPoint: 10
-  defense: 20
+  healthPoint: 20
+  defense: 10
   speed: 0
