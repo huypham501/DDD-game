@@ -46,6 +46,5 @@ public class AudioSetting : MonoBehaviour
     {
         PlayerPrefs.SetFloat(BackgroundPref, backgroundSlider.value);
         PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectSlider.value);
-        Debug.Log("Update saved: " + backgroundFloat + "|" + soundEffectFloat);
     }
 }

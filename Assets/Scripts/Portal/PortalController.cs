@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PortalController : MonoBehaviour
 {
-    public float maxHealth = 50f;
+    public float maxHealth = 500f;
     private float _currentHealth;
     Rigidbody2D rb;
     HPBehaviour hpBehaviour;
@@ -12,6 +12,8 @@ public class PortalController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         _currentHealth = maxHealth;
+        hpBehaviour = GetComponent<HPBehaviour>();
+        hpBehaviour.SetHealth(_currentHealth);
     }
     private void OnCollisionEnter2D(Collision2D other)
     {

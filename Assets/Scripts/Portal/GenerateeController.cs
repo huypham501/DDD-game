@@ -9,7 +9,11 @@ public class GenerateeController : MonoBehaviour
     {
         generator = otherGenerator;
     }
-    private void OnDestroy() {
-        generator.lostHolder();
+    private void OnDestroy()
+    {
+        if (generator != null)
+        {
+            generator.lostHolder();
+        }
     }
 }

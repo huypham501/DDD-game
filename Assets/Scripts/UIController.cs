@@ -36,8 +36,4 @@ public class UIController : MonoBehaviour
         }
         #endregion
     }
-    public void Quit()
-    {
-        Application.Quit();
-    }
 }
