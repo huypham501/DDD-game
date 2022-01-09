@@ -111,7 +111,6 @@ public class EnemyControllerScript : MonoBehaviour
     {
         if (!isInvisible)
         {
-            // enterInvisibleMode();
             StartCoroutine(animationBounceBackGetHit(hitByObject));
         }
     }
@@ -128,27 +127,6 @@ public class EnemyControllerScript : MonoBehaviour
         }
         yield return 0;
     }
-    private void enterInvisibleMode()
-    {
-        // isInvisible = true;
-        // _currentInvisibleTime = maxInvinsibleTime;
-        // changeOpacityCharacter(Contants.HALF_FLOAT);
-    }
-
-    private void coutdownInvisibleMode()
-    {
-        // if (_currentInvisibleTime > 0)
-        // {
-        //     _currentInvisibleTime -= Time.deltaTime;
-
-        // }
-        // else if (_currentInvisibleTime <= 0)
-        // {
-        //     isInvisible = false;
-        //     // changeOpacityCharacter(Contants.FULL_FLOAT);
-        // }
-    }
-
     private void changeOpacityCharacter(float value)
     {
         // GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, value);
