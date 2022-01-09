@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 817094446411084910}
   - component: {fileID: 5561587008487107173}
   - component: {fileID: 152549896032923113}
+  - component: {fileID: 4994831912348751476}
   m_Layer: 8
   m_Name: WraithSkin2
   m_TagString: Enemy
@@ -271,6 +272,18 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &4994831912348751476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817094446411084904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc7fcda2997151a4fb5990db42464c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7053307075758115236
 PrefabInstance:
   m_ObjectHideFlags: 0

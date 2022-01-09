@@ -129,9 +129,4 @@ public class EnemyControllerScript : MonoBehaviour
         }
         yield return 0;
     }
-    private void changeOpacityCharacter(float value)
-    {
-        // GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, value);
-    }
-
 }
