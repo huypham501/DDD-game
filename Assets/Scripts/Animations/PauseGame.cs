@@ -13,14 +13,12 @@ public class PauseGame : MonoBehaviour
         if (gameIsPaused == false)
         {
             Time.timeScale = 0f;
-            AudioListener.pause = true;
             gameIsPaused = true;
             Debug.Log("Game is Pause");
         }
         else
         {
             Time.timeScale = 1f;
-            AudioListener.pause = false;
             gameIsPaused = false;
             Debug.Log("Game is Resume");
         }

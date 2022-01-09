@@ -7,7 +7,7 @@ public class ToggleRenderer : MonoBehaviour
     public GameObject pauseBox;
     void Start()
     {
-        //pauseBox.SetActive(false);
+        pauseBox.SetActive(false);
         
     }
     private void Update()
@@ -23,13 +23,13 @@ public class ToggleRenderer : MonoBehaviour
         if (rend.enabled)
         {
             rend.enabled = false;
-            //pauseBox.SetActive(false);
+            pauseBox.SetActive(false);
             Debug.Log("Turn off");
         }
         else
         {
             rend.enabled = true;
-            //pauseBox.SetActive(true);
+            pauseBox.SetActive(true);
             Debug.Log("Turn on");
         }
     }
