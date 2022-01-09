@@ -12,16 +12,17 @@ public class CharacterControllerScript : MonoBehaviour
     private Vector2 moveVector = Vector2.zero;
     private InputActions inputActions;
     public int moveSpeed = 70;
-    public int maxHealth = 5;
-    private int _currentHealth;
+    public float maxHealth = 5f;
+    private float _currentHealth;
     public int maxInvinsibleTime = 2;
     private float _currentInvisibleTime;
     private bool isInvisible = false;
     public float timeBounceBack = 2;
     public float powerBounceBack = 20;
     private bool isAttacking = false;
+    public HPBehaviour HPBehaviour;
 
-    public int currentHealth
+    public float currentHealth
     {
         get { return _currentHealth; }
     }
@@ -40,6 +41,7 @@ public class CharacterControllerScript : MonoBehaviour
 
         _currentHealth = maxHealth;
         _currentInvisibleTime = maxInvinsibleTime;
+        HPBehaviour.SetMaxHealth(maxHealth);
     }
     // Update is called once per frame
     void Update()
@@ -96,6 +98,7 @@ public class CharacterControllerScript : MonoBehaviour
     private void changeHealth(int value)
     {
         _currentHealth = Mathf.Clamp(_currentHealth + value, 0, maxHealth);
+        HPBehaviour.SetHealth(currentHealth);
         // if die
     }
     private void OnCollisionEnter2D(Collision2D other)
