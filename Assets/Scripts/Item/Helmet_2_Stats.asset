@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215a81dc09ed13747abf3d7fad8ab625, type: 3}
   m_Name: Helmet_2_Stats
   m_EditorClassIdentifier: 
-  strength: 0
-  healthPoint: 0
-  defense: 0
+  strength: 1
+  healthPoint: 10
+  defense: 20
   speed: 0

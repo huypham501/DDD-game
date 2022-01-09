@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Helmet_1
   m_EditorClassIdentifier: 
   name: Helmet_1
+  itemStats: {fileID: 11400000, guid: 3e0627af2390e504988d3d8b6cd89204, type: 2}
   itemTypeEnum: 0
   sprite_Front_default: {fileID: 21300000, guid: 18fc52bfe69d3084288b78d2927bde9f,
     type: 3}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215a81dc09ed13747abf3d7fad8ab625, type: 3}
   m_Name: Armor_2_Stats
   m_EditorClassIdentifier: 
-  strength: 0
-  healthPoint: 0
-  defense: 0
+  strength: 2
+  healthPoint: 15
+  defense: 35
   speed: 0

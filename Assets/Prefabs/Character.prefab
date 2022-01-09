@@ -543,7 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 653262824181088171}
   - component: {fileID: 4246164770774855359}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: HitBox2
   m_TagString: CharacterHitBox
   m_Icon: {fileID: 0}
@@ -980,7 +980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3015386800571973507}
   - component: {fileID: 4218487397491862669}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: HitBox2
   m_TagString: CharacterHitBox
   m_Icon: {fileID: 0}
@@ -1220,7 +1220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4807009845010569720}
   - component: {fileID: 3466473962219662606}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: HitBox3
   m_TagString: CharacterHitBox
   m_Icon: {fileID: 0}
@@ -1277,7 +1277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3282145903611769955}
   - component: {fileID: 5589997789643214847}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: HitBox2
   m_TagString: CharacterHitBox
   m_Icon: {fileID: 0}
@@ -3587,7 +3587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4929705920004090183}
   - component: {fileID: 5599517495036379530}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: HitBox2
   m_TagString: CharacterHitBox
   m_Icon: {fileID: 0}
@@ -5098,7 +5098,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6094555689815084450}
   - component: {fileID: 1041121500040872578}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: HitBox1
   m_TagString: CharacterHitBox
   m_Icon: {fileID: 0}
@@ -5706,7 +5706,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5112309032526026932}
   - component: {fileID: 8451649619564078682}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: HitBox1
   m_TagString: CharacterHitBox
   m_Icon: {fileID: 0}
@@ -6475,7 +6475,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6584085002863677597}
   - component: {fileID: 5810011296531187459}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: HitBox1
   m_TagString: CharacterHitBox
   m_Icon: {fileID: 0}
@@ -6532,7 +6532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7043974631960248450}
   - component: {fileID: 1588143895763603149}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: HitBox1
   m_TagString: CharacterHitBox
   m_Icon: {fileID: 0}

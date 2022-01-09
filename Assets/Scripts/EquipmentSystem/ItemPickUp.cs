@@ -7,7 +7,7 @@ public class ItemPickUp : MonoBehaviour
     public Item item;
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.transform.tag == "Player")
+        if (other.collider.gameObject.tag == "Player")
         {
             pickUp();
         }

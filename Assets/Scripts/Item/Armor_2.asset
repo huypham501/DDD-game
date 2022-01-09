@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Armor_2
   m_EditorClassIdentifier: 
   name: Armor_2
+  itemStats: {fileID: 11400000, guid: e5ae1eddf263e8e4688fa1575db17b45, type: 2}
   itemTypeEnum: 1
   sprite_Front_default: {fileID: 21300000, guid: ccd303a38873f3f47b60d993d33181c8,
     type: 3}
