@@ -13,7 +13,7 @@ public class EquipSlot : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag != null)
         {
             ItemDragDrop itemDragDropTemp = eventData.pointerDrag.GetComponent<ItemDragDrop>();
-            if (itemDragDropTemp != null && itemDragDropTemp.getItem().GetItemTypeEnum() == itemEquipTypeEnum)
+            if (itemDragDropTemp != null && itemDragDropTemp.getItem().itemTypeEnum == itemEquipTypeEnum)
             {
                 EquipmentSystem.instance.equipItem(itemDragDropTemp.getItem());
                 itemDragDropTemp.setEquip();

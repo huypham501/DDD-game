@@ -12,8 +12,4 @@ public class Item : ScriptableObject
     public Sprite sprite_Back = null;
     public Sprite sprite_Left = null;
     public Sprite sprite_Right = null;
-    public ItemTypeEnum GetItemTypeEnum()
-    {
-        return itemTypeEnum;
-    }
 }
