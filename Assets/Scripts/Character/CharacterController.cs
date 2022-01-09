@@ -9,6 +9,7 @@ public class CharacterController : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
     public Stats characterStats;
+    public Money money;
     private Vector2 lookDirectionVector = new Vector2(0, -1);
     private Vector2 moveVector = Vector2.zero;
     private InputActions inputActions;

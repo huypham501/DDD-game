@@ -7,4 +7,4 @@ public static class Enum
     
 }
 
-public enum ItemTypeEnum {Helmet, Armor, Sword, Shield, Potion}
+public enum ItemTypeEnum {Helmet, Armor, Sword, Shield, Potion, Money}

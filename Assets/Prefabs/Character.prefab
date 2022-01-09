@@ -4080,6 +4080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterStats: {fileID: 11400000, guid: cf08dcc902a98a44ebb9d94563af1626, type: 2}
+  money: {fileID: 11400000, guid: 8ba73b886c1494b4989022ea40471702, type: 2}
   moveSpeed: 70
   maxInvinsibleTime: 2
   timeBounceBack: 2
