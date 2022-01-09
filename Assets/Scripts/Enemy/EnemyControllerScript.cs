@@ -14,7 +14,7 @@ public class EnemyControllerScript : MonoBehaviour
     private int _curWayPoint = 0;
     private bool isReachEndOfPath = false;
     // private Vector2 lookDirection = Vector2.zero;
-    public float moveSpeed = 400;
+    public float moveSpeed = 300;
     public float maxHealth = 5f;
     private float _currentHealth;
     public float timeBounceBack = 2;

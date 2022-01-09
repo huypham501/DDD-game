@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 public class InventoryItemCell : MonoBehaviour
 {
     public GameObject itemImage;
-
     private void Awake()
     {
 

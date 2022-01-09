@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EquipmentSystem : MonoBehaviour
 {
+    public Item swordItem;
     public GameObject sword;
+    public Item armorItem;
     public GameObject bodyClothesBack;
     public GameObject bodyClothesFront;
     public GameObject bodyClothesLeft;
@@ -17,6 +19,7 @@ public class EquipmentSystem : MonoBehaviour
     public GameObject RightShoesFront;
     public GameObject RightShoesLeft;
     public GameObject RightShoesRight;
+    public Item helmetItem;
     public GameObject hatBack;
     public GameObject hatFront;
     public GameObject hatLeft;
@@ -44,22 +47,25 @@ public class EquipmentSystem : MonoBehaviour
     {
 
     }
-    public void equipArmor(Item item)
+    private void equipArmor(Item item)
     {
+        armorItem = item;
         bodyClothesFront.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Front_default;
         bodyClothesBack.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Back;
         bodyClothesLeft.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Left;
         bodyClothesRight.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Right;
     }
-    public void equipHelmet(Item item)
+    private void equipHelmet(Item item)
     {
+        helmetItem = item;
         hatFront.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Front_default;
         hatBack.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Back;
         hatLeft.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Left;
         hatRight.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Right;
     }
-    public void equipSword(Item item)
+    private void equipSword(Item item)
     {
+        swordItem = item;
         sword.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Front_default;
     }
     public void equipItem(Item item)
