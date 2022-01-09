@@ -1,27 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemyControllerScript : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator animator;
     Transform target;
+    Seeker seeker;
+    private Path _curPath;
+    private float nextWaypointDistance = 3f;
+    private int _curWayPoint = 0;
+    private bool isReachEndOfPath = false;
     // private Vector2 lookDirection = Vector2.zero;
-    public int moveSpeed = 3;
+    public float moveSpeed = 400;
     public float maxHealth = 5f;
     private float _currentHealth;
-    public int maxInvinsibleTime = 2;
-    private float _currentInvisibleTime;
-    private bool isInvisible = false;
     public float timeBounceBack = 2;
-    public float powerBounceBack = 20;
-    private bool isAttacking = false;
+    public float powerBounceBack = 50f;
     public int detectDistance = 5;
     public float minFollowDistance = 1f;
-    private Vector2 directionToPlayer;
-    private Vector2 moveVector;
-
+    private Vector2 lookDirection;
     HPBehaviour hpBehaviour;
     // Start is called before the first frame update
     void Start()
@@ -30,63 +30,69 @@ public class EnemyControllerScript : MonoBehaviour
         animator = GetComponent<Animator>();
         hpBehaviour = GetComponent<HPBehaviour>();
         target = CharacterControllerScript.instance.transform;
+
+        seeker = GetComponent<Seeker>();
+        InvokeRepeating("updatePath", 0f, 0.5f);
+
         _currentHealth = maxHealth;
-        _currentInvisibleTime = maxInvinsibleTime;
         hpBehaviour.SetMaxHealth(maxHealth);
     }
-
     // Update is called once per frame
     void Update()
     {
-        directionToPlayer = target.position - transform.position;
+        if (_curPath != null && isInDistanceFollow())
+        {
+            if (_curWayPoint >= _curPath.vectorPath.Count)
+            {
+                isReachEndOfPath = true;
+                return;
+            }
+            else
+            {
+                isReachEndOfPath = false;
+            }
+
+            lookDirection = ((Vector2)_curPath.vectorPath[_curWayPoint] - rb.position).normalized;
+            animator.SetFloat("Speed", lookDirection.magnitude);
+            if (lookDirection.x > 0)
+            {
+                animator.SetFloat("Horizontal", 1);
+            }
+            else
+            {
+                animator.SetFloat("Horizontal", 0);
+            }
+
+            rb.AddForce(new Vector2(lookDirection.x * moveSpeed * Time.deltaTime, lookDirection.y * moveSpeed * Time.deltaTime));
+
+            if (Vector2.Distance(rb.position, _curPath.vectorPath[_curWayPoint]) < nextWaypointDistance)
+            {
+                _curWayPoint++;
+            }
+        }
     }
     void FixedUpdate()
     {
-        if (directionToPlayer.magnitude <= detectDistance && directionToPlayer.magnitude >= minFollowDistance)
-        {
-            followPlayer();
-        }
-        else
-        {
-            // rb.velocity = Vector2.zero;
-        }
-    }
-    private void followPlayer()
-    {
-        directionToPlayer.Normalize();
-        animator.SetFloat("Speed", directionToPlayer.magnitude);
-        if (directionToPlayer.x > 0)
-        {
-            animator.SetFloat("Horizontal", 1);
-        }
-        else
-        {
-            animator.SetFloat("Horizontal", 0);
-        }
-
-        rb.MovePosition(new Vector2(transform.position.x + directionToPlayer.x * moveSpeed * Time.deltaTime, transform.position.y + directionToPlayer.y * moveSpeed * Time.deltaTime));
-    }
-    private void attack()
-    {
-        // GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Vector2.up * 0.5f, Quaternion.identity);
-
-        // ProjectileScript projectile = projectileObject.GetComponent<ProjectileScript>();
-        // projectile.Launch(lookDirection, 300);
-        // animator.SetTrigger("Attack");
-        // isAttacking = true;
-        // Debug.Log(animator.GetCurrentAnimatorClipInfo(0)[0].clip.name);
-        // while (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack.Back") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attack.Top") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attack.Left_Side") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attack.Right_Side"))
-        // {
-        //     Debug.Log("in attacking");
-        // }
-        // isAttacking = false;
 
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private bool isInDistanceFollow()
     {
-        if (other.tag == "CharacterHitBox")
+        float distanceTemp = Vector2.Distance(target.position, rb.position);
+        return distanceTemp <= detectDistance;
+    }
+    private void updatePath()
+    {
+        if (seeker.IsDone())
         {
-            
+            seeker.StartPath(rb.position, target.position, OnUpdatePathComplete);
+        }
+    }
+    private void OnUpdatePathComplete(Path foundPath)
+    {
+        if (!foundPath.error)
+        {
+            _curPath = foundPath;
+            _curWayPoint = 0;
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
@@ -109,10 +115,7 @@ public class EnemyControllerScript : MonoBehaviour
     }
     private void getHit(Transform hitByObject)
     {
-        if (!isInvisible)
-        {
-            StartCoroutine(animationBounceBackGetHit(hitByObject));
-        }
+        StartCoroutine(animationBounceBackGetHit(hitByObject));
     }
     private IEnumerator animationBounceBackGetHit(Transform hitByObject)
     {

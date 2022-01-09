@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1118761315632082028}
   - component: {fileID: 1118761315632082027}
   - component: {fileID: 5331977761772352096}
+  - component: {fileID: 8090295581509657737}
   m_Layer: 8
   m_Name: WraithSkin3
   m_TagString: Enemy
@@ -154,7 +155,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -193,11 +194,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28e145b8f2700024b85c1bd728b37c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 400
   maxHealth: 5
-  maxInvinsibleTime: 2
   timeBounceBack: 2
-  powerBounceBack: 20
+  powerBounceBack: 50
   detectDistance: 5
   minFollowDistance: 1
 --- !u!114 &5331977761772352096
@@ -243,6 +243,34 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   fill: {fileID: 8255213603838212446}
+--- !u!114 &8090295581509657737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118761315632082029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 1
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
 --- !u!1001 &7291931456559632801
 PrefabInstance:
   m_ObjectHideFlags: 0
