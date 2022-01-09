@@ -35,20 +35,28 @@ public class EquipmentSystem : MonoBehaviour
         instance = this;
     }
     #endregion
-    // Start is called before the first frame update
-    void Start()
+    private void updateCharacterStats(Stats removeItemStats, Stats equipItemStats)
     {
-        // SpriteRenderer spriteRendererTemp = testGameObject.transform.GetComponent<SpriteRenderer>();
-        // spriteRendererTemp.sprite = transforms[0];
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (removeItemStats == null)
+        {
+            CharacterController.instance.characterStats = CharacterController.instance.characterStats + equipItemStats;
+        }
+        else
+        {
+            CharacterController.instance.characterStats = CharacterController.instance.characterStats + equipItemStats - removeItemStats;
+        }
+        Debug.Log(CharacterController.instance.characterStats);
     }
     private void equipArmor(Item item)
     {
+        if (armorItem == null)
+        {
+            updateCharacterStats(null, item.itemStats);
+        }
+        else
+        {
+            updateCharacterStats(armorItem.itemStats, item.itemStats);
+        }
         armorItem = item;
         bodyClothesFront.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Front_default;
         bodyClothesBack.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Back;
@@ -57,6 +65,14 @@ public class EquipmentSystem : MonoBehaviour
     }
     private void equipHelmet(Item item)
     {
+        if (helmetItem == null)
+        {
+            updateCharacterStats(null, item.itemStats);
+        }
+        else
+        {
+            updateCharacterStats(helmetItem.itemStats, item.itemStats);
+        }
         helmetItem = item;
         hatFront.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Front_default;
         hatBack.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Back;
@@ -65,6 +81,14 @@ public class EquipmentSystem : MonoBehaviour
     }
     private void equipSword(Item item)
     {
+        if (swordItem == null)
+        {
+            updateCharacterStats(null, item.itemStats);
+        }
+        else
+        {
+            updateCharacterStats(swordItem.itemStats, item.itemStats);
+        }
         swordItem = item;
         sword.transform.GetComponent<SpriteRenderer>().sprite = item.sprite_Front_default;
     }

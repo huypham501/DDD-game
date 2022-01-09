@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Inventory/Item/Stats")]
+[CreateAssetMenu(menuName = "Inventory/Stats")]
 public class Stats : ScriptableObject
 {
     public float strength;
@@ -23,5 +23,9 @@ public class Stats : ScriptableObject
     public static Stats operator -(Stats stats_a, Stats stats_b)
     {
         return new Stats(stats_a.strength - stats_b.strength, stats_a.healthPoint - stats_b.healthPoint, stats_a.defense - stats_b.defense, stats_a.speed - stats_b.speed);
+    }
+    public override string ToString()
+    {
+        return "strength: " + strength + " healthPoint: " + healthPoint + " defense: " + defense + " speed: " + speed;
     }
 }

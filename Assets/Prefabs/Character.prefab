@@ -4079,8 +4079,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884ac34cf1e78c44c84f63babbfcac02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterStats: {fileID: 11400000, guid: cf08dcc902a98a44ebb9d94563af1626, type: 2}
   moveSpeed: 70
-  maxHealth: 5
   maxInvinsibleTime: 2
   timeBounceBack: 2
   powerBounceBack: 20
@@ -4096,7 +4096,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca8920dbea7403249bd8e3239ba38909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordItem: {fileID: 0}
   sword: {fileID: 7688549222177356503}
+  armorItem: {fileID: 0}
   bodyClothesBack: {fileID: 2558878619206638097}
   bodyClothesFront: {fileID: 47833428029319969}
   bodyClothesLeft: {fileID: 5499679386939307770}
@@ -4109,6 +4111,7 @@ MonoBehaviour:
   RightShoesFront: {fileID: 0}
   RightShoesLeft: {fileID: 0}
   RightShoesRight: {fileID: 0}
+  helmetItem: {fileID: 0}
   hatBack: {fileID: 8054292866911238934}
   hatFront: {fileID: 2392560599498313300}
   hatLeft: {fileID: 7256583070950404446}

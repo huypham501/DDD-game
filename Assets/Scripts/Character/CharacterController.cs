@@ -4,24 +4,25 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Spriter2UnityDX;
 
-public class CharacterControllerScript : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator animator;
+    public Stats characterStats;
     private Vector2 lookDirectionVector = new Vector2(0, -1);
     private Vector2 moveVector = Vector2.zero;
     private InputActions inputActions;
     public int moveSpeed = 70;
-    public int maxHealth = 5;
-    private int _currentHealth;
+    // public int maxHealth = 5;
+    private float _currentHealth;
     public int maxInvinsibleTime = 2;
     private float _currentInvisibleTime;
     private bool isInvisible = false;
     public float timeBounceBack = 2;
     public float powerBounceBack = 20;
     private bool isAttacking = false;
-    public static CharacterControllerScript instance;
-    public int currentHealth
+    public static CharacterController instance;
+    public float currentHealth
     {
         get { return _currentHealth; }
     }
@@ -47,7 +48,7 @@ public class CharacterControllerScript : MonoBehaviour
         inputActions.Character.Direction.canceled += stopMove;
         inputActions.Character.Attack.performed += attack;
 
-        _currentHealth = maxHealth;
+        _currentHealth = characterStats.healthPoint;
         _currentInvisibleTime = maxInvinsibleTime;
     }
     // Update is called once per frame
@@ -104,7 +105,7 @@ public class CharacterControllerScript : MonoBehaviour
     }
     private void changeHealth(int value)
     {
-        _currentHealth = Mathf.Clamp(_currentHealth + value, 0, maxHealth);
+        _currentHealth = Mathf.Clamp(_currentHealth + value, 0, characterStats.healthPoint);
         // if die
     }
     private void OnCollisionEnter2D(Collision2D other)

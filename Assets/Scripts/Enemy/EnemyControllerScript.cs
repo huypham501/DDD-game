@@ -29,7 +29,7 @@ public class EnemyControllerScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         hpBehaviour = GetComponent<HPBehaviour>();
-        target = CharacterControllerScript.instance.transform;
+        target = CharacterController.instance.transform;
 
         seeker = GetComponent<Seeker>();
         InvokeRepeating("updatePath", 0f, 0.5f);

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     new public string name;
+    public Stats itemStats;
     public ItemTypeEnum itemTypeEnum;
     // default is only one sprite for a top down - 4 sprite
     public Sprite sprite_Front_default = null;
