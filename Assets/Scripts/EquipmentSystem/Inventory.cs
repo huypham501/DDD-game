@@ -37,6 +37,10 @@ public class Inventory : MonoBehaviour
         listItem.RemoveAt(index);
         notifyRemoveItemUIInventory(index);
     }
+    public bool isContainItem(Item item)
+    {
+        return listItem.Contains(item);
+    }
     public Item getItem(int index)
     {
         // Sure index not throw exception

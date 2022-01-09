@@ -9,7 +9,14 @@ public class ItemPickUp : MonoBehaviour
     {
         if (other.collider.gameObject.tag == "Player")
         {
-            pickUp();
+            if (!Inventory.instance.isContainItem(item))
+            {
+                pickUp();
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
     private void pickUp()
