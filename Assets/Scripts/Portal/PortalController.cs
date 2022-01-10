@@ -13,7 +13,7 @@ public class PortalController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _currentHealth = maxHealth;
         hpBehaviour = GetComponent<HPBehaviour>();
-        hpBehaviour.SetHealth(_currentHealth);
+        hpBehaviour.SetMaxHealth(_currentHealth);
     }
     private void OnCollisionEnter2D(Collision2D other)
     {

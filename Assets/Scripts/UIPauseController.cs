@@ -25,14 +25,6 @@ public class UIPauseController : MonoBehaviour
     }
     public void interactPauseMenu()
     {
-        pauseMenu.SetActive(!pauseMenu.activeSelf);
-    }
-    public void interactOptionMenu()
-    {
-        optionMenu.SetActive(!optionMenu.activeSelf);
-    }
-    public void pause()
-    {
         if (isPause)
         {
             Time.timeScale = 1f;
@@ -42,11 +34,15 @@ public class UIPauseController : MonoBehaviour
             Time.timeScale = 0f;
         }
         isPause = !isPause;
-        interactPauseMenu();
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+    }
+    public void interactOptionMenu()
+    {
+        optionMenu.SetActive(!optionMenu.activeSelf);
     }
     public void resume()
     {
-        pause();
+        interactPauseMenu();
     }
     public void quit()
     {

@@ -22,6 +22,7 @@ public class CharacterController : MonoBehaviour
     public float timeBounceBack = 2;
     public float powerBounceBack = 20;
     public bool isDead = false;
+    HPBehaviour hpBehaviour;
     public static CharacterController instance;
     public float currentHealth
     {
@@ -51,8 +52,9 @@ public class CharacterController : MonoBehaviour
 
         _currentHealth = characterStats.healthPoint;
         _currentInvisibleTime = maxInvinsibleTime;
+        hpBehaviour = GetComponent<HPBehaviour>();
+        hpBehaviour.SetMaxHealth(characterStats.healthPoint);
     }
-    // Update is called once per frame
     void Update()
     {
         if (isDead)
@@ -81,18 +83,6 @@ public class CharacterController : MonoBehaviour
             animator.SetFloat("Horizontal", lookDirectionVector.x);
             animator.SetFloat("Vertical", lookDirectionVector.y);
         }
-        // if (Mathf.Abs(lookDirectionVector.x) >= Mathf.Abs(lookDirectionVector.y))
-        // {
-        //     animator.SetFloat("Horizontal", lookDirectionVector.x);
-        //     animator.SetFloat("Vertical", 0);
-        // }
-        // else
-        // {
-        //     animator.SetFloat("Horizontal", 0);
-        //     animator.SetFloat("Vertical", lookDirectionVector.y);
-        // }
-
-        // rb.MovePosition(new Vector2(transform.position.x + moveVector.x * moveSpeed * Time.deltaTime, transform.position.y + moveVector.y * moveSpeed * Time.deltaTime));
         rb.velocity = new Vector2(moveVector.x, moveVector.y).normalized * moveSpeed * Time.deltaTime;
     }
     private void move(InputAction.CallbackContext context)
@@ -112,10 +102,19 @@ public class CharacterController : MonoBehaviour
     {
         animator.SetTrigger("Attack");
     }
+    public void updateMaxHealthBar()
+    {
+        hpBehaviour.SetMaxHealth(characterStats.healthPoint);
+        hpBehaviour.SetHealth(_currentHealth);
+    }
     private void changeHealth(int value)
     {
         _currentHealth = Mathf.Clamp(_currentHealth + value, 0, characterStats.healthPoint);
-        // if die
+        hpBehaviour.SetHealth(_currentHealth);
+        if (_currentHealth <= 0)
+        {
+            animator.SetBool("isDead", isDead);
+        }
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -124,13 +123,7 @@ public class CharacterController : MonoBehaviour
             if (!isInvisible)
             {
                 enterInvisibleMode();
-                // changeHealth()
-                if (_currentHealth <= 0)
-                {
-                    isDead = true;
-                    animator.SetBool("isDead", isDead);
-                    return;
-                }
+                changeHealth(-1);
                 StartCoroutine(animationGetHit(other.transform));
             }
         }

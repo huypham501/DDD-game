@@ -33,7 +33,6 @@ public class AudioSetting : MonoBehaviour
     }
     public void UpdateSound()
     {
-        Debug.Log("Update");
         backgroundAudio.volume = backgroundSlider.value;
         for (int i = 0; i < SoundEffectAudio.Length; i++)
         {

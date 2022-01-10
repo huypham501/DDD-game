@@ -7,7 +7,7 @@ public class GeneratorObjectController : MonoBehaviour
     public int numberEnemyHolder = 5;
     private int _curNumberEnemyHolder;
     public float timeBetweenGenerate = 5f;
-    public float forceMoveGenerate = 100f;
+    public float forceMoveGenerate = 500f;
     public GameObject objectGenerate;
     private void Start()
     {
@@ -28,6 +28,7 @@ public class GeneratorObjectController : MonoBehaviour
                 {
                     Vector2 vector2 = new Vector2(Random.value, Random.value);
                     vector2 = vector2.normalized * forceMoveGenerate * Time.deltaTime;
+                    Debug.Log(vector2);
                     newObjectRB.AddForce(vector2);
                     _curNumberEnemyHolder++;
                 }

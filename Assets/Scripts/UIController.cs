@@ -22,14 +22,14 @@ public class UIController : MonoBehaviour
     private void Update()
     {
         #region Inventory controller
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             isOpenUIInventory = !isOpenUIInventory;
             UIInventoryObject.SetActive(isOpenUIInventory);
         }
         #endregion
         #region Equipment window controller
-        else if (Input.GetKeyDown(KeyCode.V))
+        else if (Input.GetKeyDown(KeyCode.Q))
         {
             isOpenUIEquipment = !isOpenUIEquipment;
             UIEquipment.SetActive(isOpenUIEquipment);

@@ -46,6 +46,7 @@ public class EquipmentSystem : MonoBehaviour
             CharacterController.instance.characterStats = CharacterController.instance.characterStats + equipItemStats - removeItemStats;
         }
         UIEquipmentController.instance.updateUIStats();
+        CharacterController.instance.updateMaxHealthBar();
     }
     private void equipArmor(Item item)
     {

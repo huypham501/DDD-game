@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -7590852279806083750, guid: ad972a23f899366428c535829e1e5d5c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberEnemyHolder: 5
   timeBetweenGenerate: 5
-  forceMoveGenerate: 100
+  forceMoveGenerate: 500
   objectGenerate: {fileID: 1118761315632082029, guid: 7b9a4e7e91a28d246a06074615e7e803,
     type: 3}
 --- !u!1001 &5957843245610551706
@@ -333,6 +333,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703007233305341274, guid: 8ddc35d2531d1a147af5f29938fcdbb7,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1703007233305341287, guid: 8ddc35d2531d1a147af5f29938fcdbb7,
         type: 3}
