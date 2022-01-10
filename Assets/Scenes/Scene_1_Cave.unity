@@ -185,10 +185,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2565151876376120658, guid: 8af6cd36b3463a84cbb00f760846f437,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7637615051893525033, guid: 8af6cd36b3463a84cbb00f760846f437,
         type: 3}
       propertyPath: m_Name
       value: HatsePotionBig (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7637615051893525033, guid: 8af6cd36b3463a84cbb00f760846f437,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8af6cd36b3463a84cbb00f760846f437, type: 3}
@@ -209,6 +219,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sword_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1763436279314444327, guid: 330e58362acd50a4eb91f089ff15d993,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7436926366178737829, guid: 330e58362acd50a4eb91f089ff15d993,
         type: 3}
@@ -264,6 +279,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910704667300330037, guid: 330e58362acd50a4eb91f089ff15d993,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 330e58362acd50a4eb91f089ff15d993, type: 3}
@@ -340,6 +360,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Helmet_2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4843053683936726237, guid: 6cfd76575ff7dec4c824b709b29fe8d4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843053683936726238, guid: 6cfd76575ff7dec4c824b709b29fe8d4,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cfd76575ff7dec4c824b709b29fe8d4, type: 3}
 --- !u!4 &71399126 stripped
@@ -410,10 +440,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7905760062018496460, guid: 9bd1f8c3a35f44b418c7b510efd6fd3a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8788018588805536475, guid: 9bd1f8c3a35f44b418c7b510efd6fd3a,
         type: 3}
       propertyPath: m_Name
       value: HealPotionSmall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788018588805536475, guid: 9bd1f8c3a35f44b418c7b510efd6fd3a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd1f8c3a35f44b418c7b510efd6fd3a, type: 3}
@@ -562,10 +602,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2565151876376120658, guid: 8af6cd36b3463a84cbb00f760846f437,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7637615051893525033, guid: 8af6cd36b3463a84cbb00f760846f437,
         type: 3}
       propertyPath: m_Name
       value: HatsePotionBig (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7637615051893525033, guid: 8af6cd36b3463a84cbb00f760846f437,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8af6cd36b3463a84cbb00f760846f437, type: 3}
@@ -637,10 +687,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3664495671881757741, guid: 9126d2e3adcfd364a8fd07a1b0b7009c,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4870966435287087610, guid: 9126d2e3adcfd364a8fd07a1b0b7009c,
         type: 3}
       propertyPath: m_Name
       value: HealPotionBig
+      objectReference: {fileID: 0}
+    - target: {fileID: 4870966435287087610, guid: 9126d2e3adcfd364a8fd07a1b0b7009c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9126d2e3adcfd364a8fd07a1b0b7009c, type: 3}
@@ -657,6 +717,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2021749287}
     m_Modifications:
+    - target: {fileID: 3718804220270261680, guid: ad77a7d5e42bec1419b017b18e66d3be,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731308026801818662, guid: ad77a7d5e42bec1419b017b18e66d3be,
         type: 3}
       propertyPath: m_RootOrder
@@ -716,6 +781,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Armor_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9062252236125755368, guid: ad77a7d5e42bec1419b017b18e66d3be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad77a7d5e42bec1419b017b18e66d3be, type: 3}
@@ -28792,10 +28862,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2021749287}
     m_Modifications:
+    - target: {fileID: 1629531212705247825, guid: 7b7ec0d8c14d95e4ea2031f49e1bd416,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2553150681194161988, guid: 7b7ec0d8c14d95e4ea2031f49e1bd416,
         type: 3}
       propertyPath: m_Name
       value: Armor_2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553150681194161988, guid: 7b7ec0d8c14d95e4ea2031f49e1bd416,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3552751417406812545, guid: 7b7ec0d8c14d95e4ea2031f49e1bd416,
         type: 3}
@@ -30070,10 +30150,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2021749287}
     m_Modifications:
+    - target: {fileID: 2686604695223317561, guid: 4bce97a50e34e1c49b1ffc6bb26d6f60,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2846575308438620557, guid: 4bce97a50e34e1c49b1ffc6bb26d6f60,
         type: 3}
       propertyPath: m_Name
       value: Sword_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846575308438620557, guid: 4bce97a50e34e1c49b1ffc6bb26d6f60,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5419883279705701521, guid: 4bce97a50e34e1c49b1ffc6bb26d6f60,
         type: 3}
@@ -30236,6 +30326,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1001780496 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9024246319284319434, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
+    type: 3}
+  m_PrefabInstance: {fileID: 693421437}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1064115567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30298,10 +30400,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8215757838830559772, guid: 7906f157b8415dd4eacd30d02857f297,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8773190425484490315, guid: 7906f157b8415dd4eacd30d02857f297,
         type: 3}
       propertyPath: m_Name
       value: Helmet_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773190425484490315, guid: 7906f157b8415dd4eacd30d02857f297,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7906f157b8415dd4eacd30d02857f297, type: 3}
@@ -30535,10 +30647,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2565151876376120658, guid: 8af6cd36b3463a84cbb00f760846f437,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7637615051893525033, guid: 8af6cd36b3463a84cbb00f760846f437,
         type: 3}
       propertyPath: m_Name
       value: HatsePotionBig
+      objectReference: {fileID: 0}
+    - target: {fileID: 7637615051893525033, guid: 8af6cd36b3463a84cbb00f760846f437,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8af6cd36b3463a84cbb00f760846f437, type: 3}
@@ -30548,6 +30670,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1122739582}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1174358519 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9024246320682164048, guid: 16ea5a1ae2d425f408cc686bc8aa0a74,
+    type: 3}
+  m_PrefabInstance: {fileID: 693421437}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1312847034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30752,6 +30886,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword_2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1763436279314444327, guid: 330e58362acd50a4eb91f089ff15d993,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7436926366178737829, guid: 330e58362acd50a4eb91f089ff15d993,
         type: 3}
       propertyPath: m_RootOrder
@@ -30807,6 +30946,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8910704667300330037, guid: 330e58362acd50a4eb91f089ff15d993,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 330e58362acd50a4eb91f089ff15d993, type: 3}
 --- !u!4 &1544179842 stripped
@@ -30822,10 +30966,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2021749287}
     m_Modifications:
+    - target: {fileID: 2686604695223317561, guid: 4bce97a50e34e1c49b1ffc6bb26d6f60,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2846575308438620557, guid: 4bce97a50e34e1c49b1ffc6bb26d6f60,
         type: 3}
       propertyPath: m_Name
       value: Sword_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846575308438620557, guid: 4bce97a50e34e1c49b1ffc6bb26d6f60,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5419883279705701521, guid: 4bce97a50e34e1c49b1ffc6bb26d6f60,
         type: 3}
@@ -30956,6 +31110,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Helmet_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843053683936726237, guid: 6cfd76575ff7dec4c824b709b29fe8d4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843053683936726238, guid: 6cfd76575ff7dec4c824b709b29fe8d4,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cfd76575ff7dec4c824b709b29fe8d4, type: 3}
@@ -52086,6 +52250,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2021749287}
     m_Modifications:
+    - target: {fileID: 3718804220270261680, guid: ad77a7d5e42bec1419b017b18e66d3be,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8731308026801818662, guid: ad77a7d5e42bec1419b017b18e66d3be,
         type: 3}
       propertyPath: m_RootOrder
@@ -52145,6 +52314,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Armor_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9062252236125755368, guid: ad77a7d5e42bec1419b017b18e66d3be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad77a7d5e42bec1419b017b18e66d3be, type: 3}
@@ -52368,8 +52542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b3a693446d26cb49b98a07e0b997560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundSlider: {fileID: 0}
-  soundEffectSlider: {fileID: 0}
+  backgroundSlider: {fileID: 1001780496}
+  soundEffectSlider: {fileID: 1174358519}
   backgroundAudio: {fileID: 1362229884}
   SoundEffectAudio: []
 --- !u!4 &1731553974
@@ -52474,6 +52648,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2021749287}
     m_Modifications:
+    - target: {fileID: 4827844419789443599, guid: 99741ae854d88d44794f90686d7e26ff,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7088985113337235228, guid: 99741ae854d88d44794f90686d7e26ff,
         type: 3}
       propertyPath: m_RootOrder
@@ -52534,6 +52713,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HatsePotionSmall
       objectReference: {fileID: 0}
+    - target: {fileID: 8948235590533172208, guid: 99741ae854d88d44794f90686d7e26ff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99741ae854d88d44794f90686d7e26ff, type: 3}
 --- !u!4 &1754704179 stripped
@@ -52586,10 +52770,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2021749287}
     m_Modifications:
+    - target: {fileID: 1629531212705247825, guid: 7b7ec0d8c14d95e4ea2031f49e1bd416,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2553150681194161988, guid: 7b7ec0d8c14d95e4ea2031f49e1bd416,
         type: 3}
       propertyPath: m_Name
       value: Armor_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553150681194161988, guid: 7b7ec0d8c14d95e4ea2031f49e1bd416,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3552751417406812545, guid: 7b7ec0d8c14d95e4ea2031f49e1bd416,
         type: 3}
